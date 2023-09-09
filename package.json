@@ -1,7 +1,12 @@
 {
+  "name": "Teste Front End da Uhuu",
+  "version": "1.0.0",
+  "description": "Criar uma Aplicação de Listagem de filmes",
+  "main": "index.js",
+  "author": "Matheus Flores",
   "dependencies": {
     "next": "^13.4.13",
-    "node-fetch": "^2.6.12",
+    "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
