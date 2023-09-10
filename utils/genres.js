@@ -1,7 +1,4 @@
-import React from 'react';
-
-export default function Desktop() {
-  const fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
   const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
   const options = {
@@ -16,25 +13,3 @@ export default function Desktop() {
     .then(res => res.json())
     .then(json => console.log(json))
     .catch(err => console.error('error:' + err));
-  
-  return (
-    <div>
-      <header>
-        <div>
-          <p>TMBD</p>
-        </div>
-      </header>
-
-      <main>
-        <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-
-      </main>
-
-      <footer>
-        <p>© {new Date().getFullYear()} My Next.js App</p>
-      </footer>
-    </div>
-  );
-}
-
-// export default Desktop;
