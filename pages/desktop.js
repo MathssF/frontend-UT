@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { GenresContext } from '../contexts/genresContext';
+import { GenresContext, GenresProvider } from '../contexts/genresContext';
+import { GenresList } from '../utils/genres.js';
 
 export default function Desktop() {
   const { genres } = useContext(GenresContext);
@@ -14,13 +15,14 @@ export default function Desktop() {
 
       <main>
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-        { genres.map((index) => (
+        {/* { genres.map((index) => (
           <button
             key={index.id}
           >
             { index.name }
           </button>
-        )) }
+        )) } */}
+        { GenresList }
       </main>
 
       <footer>
