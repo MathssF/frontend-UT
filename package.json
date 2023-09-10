@@ -2,7 +2,7 @@
   "name": "Teste Front End da Uhuu",
   "version": "1.0.0",
   "description": "Criar uma Aplicação de Listagem de filmes",
-  "main": "index.js",
+  "main": "desktop.js",
   "author": "Matheus Flores",
   "scripts": {
     "start": "next start",
