@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GenresContext, GenresProvider } from '../contexts/genresContext';
-import { GenresList } from '../utils/genres.js';
+import { GenresComponent } from '../utils/genresComponent.js';
 
 export default function Desktop() {
   const { genres } = useContext(GenresContext);
@@ -22,7 +22,7 @@ export default function Desktop() {
             { index.name }
           </button>
         )) } */}
-        { GenresList }
+        { GenresComponent }
       </main>
 
       <footer>
