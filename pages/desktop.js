@@ -3,7 +3,13 @@ import { GenresContext, GenresProvider } from '../contexts/genresContext';
 import { GenresComponent } from '../utils/genresComponent.js';
 
 export default function Desktop() {
-  const { genres } = useContext(GenresContext);
+  const { genres, setGenres } = useContext(GenresContext);
+
+  const handleGenreSelect = (id) => {
+    setGenres(prevGenres => prevGenres.map(genre =>
+        genre.id === id? { ...genre, select: !genre.select} : genre
+      ))
+  }
   
   return (
     <div>
@@ -15,14 +21,10 @@ export default function Desktop() {
 
       <main>
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-        {/* { genres.map((index) => (
-          <button
-            key={index.id}
-          >
-            { index.name }
-          </button>
-        )) } */}
-        { GenresComponent }
+        <GenresComponent
+          genres={genres}
+          onGenreSelect={handleGenreSelect}
+        />
       </main>
 
       <footer>
@@ -31,5 +33,3 @@ export default function Desktop() {
     </div>
   );
 }
-
-// export default Desktop;
