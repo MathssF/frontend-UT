@@ -2,17 +2,21 @@ import React from 'react';
 // import React, { useContext } from 'react';
 // import { GenresContext } from '../contexts/genresContext';
 
-export default function GenresList() {
+export default function GenresList({ genres, onGenreSelect }) {
   // const { genres } = useContext(GenresContext);
 
   return (
     <div>
       { genres.map((index) => (
-        <button
+        <div
           key={index.id}
         >
-          { index.name }
-        </button>
+          <button
+            onClick={() => onGenreSelect(genre.id)}
+          >
+            { index.name }
+          </button>
+        </div>
       )) }
     </div>
   )
