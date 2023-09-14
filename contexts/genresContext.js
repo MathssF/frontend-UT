@@ -22,7 +22,6 @@ const GenresProvider = ({ children }) => {
           ...genre,
           select: false
         }));
-        // setGenres(data.genres)};
         setGenres(genresWithSelect)}
       )
       .catch(err => console.error('error:' + err));

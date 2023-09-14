@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
-import { GenresContext } from '../contexts/genresContext';
+import React from 'react';
+// import React, { useContext } from 'react';
+// import { GenresContext } from '../contexts/genresContext';
 
 export default function GenresList() {
-  const { genres } = useContext(GenresContext);
+  // const { genres } = useContext(GenresContext);
 
   return (
     <div>
