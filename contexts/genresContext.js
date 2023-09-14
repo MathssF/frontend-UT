@@ -17,7 +17,14 @@ const GenresProvider = ({ children }) => {
 
     fetch(url, options)
       .then(res => res.json())
-      .then(data => setGenres(data.genres))
+      .then(data => {
+        const genresWithSelect = data.genres.map(genre => ({
+          ...genre,
+          select: false
+        }));
+        // setGenres(data.genres)};
+        setGenres(genresWithSelect)}
+      )
       .catch(err => console.error('error:' + err));
   }, []);
 
