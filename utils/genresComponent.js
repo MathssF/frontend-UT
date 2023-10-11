@@ -4,14 +4,14 @@ export default function GenresComponent({ genres, onGenreSelect }) {
 
   return (
     <div>
-      { genres.map((index) => (
+      { genres.map((genre) => (
         <div
-          key={index.id}
+          key={genre.id}
         >
           <button
             onClick={() => onGenreSelect(genre.id)}
           >
-            { index.name }
+            { genre.name }
           </button>
         </div>
       )) }
