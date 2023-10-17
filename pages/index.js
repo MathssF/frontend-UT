@@ -3,7 +3,7 @@ import { GenresContext, GenresProvider } from '../contexts/genresContext';
 // import { GenresContext } from '../contexts/genresContext';
 import { GenresComponent } from '../utils/genresComponent.js';
 
-export default function Desktop() {
+export default function IndexMenu() {
   const { genres, setGenres } = useContext(GenresContext);
 
   const handleGenreSelect = (id) => {
