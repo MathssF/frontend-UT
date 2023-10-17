@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default function Desktop() {
-  // Começando esta parte aqui
+  // Começando esta parte aqui, modificando para o git add .
+  
   return (
     <div>
       <p>
