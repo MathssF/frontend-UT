@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { GenresContext, GenresProvider } from '../contexts/genresContext';
-// import { GenresContext } from '../contexts/genresContext';
-import { GenresComponent } from '../utils/genresComponent.js';
+// import { GenresContext, GenresProvider } from '../contexts/genresContext';
+// import { GenresComponent } from '../utils/genresComponent.js';
+import { GenresProvider } from '../contexts/genresContext';
+import Desktop from '../utils/Desktop';
 
 export default function IndexMenu() {
   const { genres, setGenres } = useContext(GenresContext);
@@ -13,26 +14,8 @@ export default function IndexMenu() {
   }
   
   return (
-    <div>
-      <header>
-        <div>
-          <p>TMBD</p>
-        </div>
-      </header>
-
-      <main>
-        <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-        <GenresProvider>
-          <GenresComponent
-            genres={genres}
-            onGenreSelect={handleGenreSelect}
-          />
-        </GenresProvider>
-      </main>
-
-      <footer>
-        <p>© {new Date().getFullYear()} My Next.js App</p>
-      </footer>
-    </div>
+    <GenresProvider>
+      <Desktop />
+    </GenresProvider>
   );
 }
