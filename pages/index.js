@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { GenresContext, GenresProvider } from '../contexts/genresContext';
+// import { GenresContext, GenresProvider } from '../contexts/genresContext';
+import { GenresContext } from '../contexts/genresContext';
 import { GenresComponent } from '../utils/genresComponent.js';
 
 export default function Desktop() {
