@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-// import { GenresContext, GenresProvider } from '../contexts/genresContext';
-import { GenresContext } from '../contexts/genresContext';
+import { GenresContext, GenresProvider } from '../contexts/genresContext';
+// import { GenresContext } from '../contexts/genresContext';
 import { GenresComponent } from '../utils/genresComponent.js';
 
 export default function Desktop() {
@@ -22,10 +22,12 @@ export default function Desktop() {
 
       <main>
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-        <GenresComponent
-          genres={genres}
-          onGenreSelect={handleGenreSelect}
-        />
+        <GenresProvider>
+          <GenresComponent
+            genres={genres}
+            onGenreSelect={handleGenreSelect}
+          />
+        </GenresProvider>
       </main>
 
       <footer>
