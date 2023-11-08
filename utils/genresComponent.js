@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function GenresComponent({ genres, onGenreSelect }) {
 
+  // console.log(genres);
   return (
     <div>
       { genres.map((genre) => (
