@@ -22,12 +22,16 @@ export default function Desktop() {
 
       <main>
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
-        <GenresProvider>
+        {/* <GenresProvider>
           <GenresComponent
             genres={genres}
             onGenreSelect={handleGenreSelect}
           />
-        </GenresProvider>
+        </GenresProvider> */}
+        <GenresComponent
+          genres={genres}
+          onGenreSelect={handleGenreSelect}
+        />
       </main>
 
       <footer>
