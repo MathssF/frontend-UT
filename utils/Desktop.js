@@ -3,8 +3,10 @@ import { GenresContext, GenresProvider } from '../contexts/genresContext';
 // import { GenresContext } from '../contexts/genresContext';
 import { GenresComponent } from '../utils/genresComponent.js';
 
+console.log('Até aqui ta indo')
 export default function Desktop() {
   // Começando esta parte aqui, modificando para o git add .
+  console.log('Até aqui ta indo')
   const { genres, setGenres } = useContext(GenresContext);
 
   const handleGenreSelect = (id) => {
