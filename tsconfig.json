@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/index.js", "contexts/genresContext.js"  ],
+, "pages/index.js", "contexts/genresContext.ts"  ],
   "exclude": [
     "node_modules"
   ]

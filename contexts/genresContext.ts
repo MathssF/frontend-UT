@@ -32,7 +32,7 @@ const GenresProvider = ({ children }) => {
     <GenresContext.Provider value={{ genres, setGenres }}>
         {children}
     </GenresContext.Provider>
-  );
+  ) as JSX.Element;
 };
 
 export { GenresContext, GenresProvider };
