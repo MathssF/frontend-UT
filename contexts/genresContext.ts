@@ -3,7 +3,7 @@ import { createContext, useEffect, useState, ReactNode } from 'react';
 interface Genre {
   id: number;
   name: string;
-  select: boolean;
+  select?: boolean;
 }
 
 interface GenresContextProps {
