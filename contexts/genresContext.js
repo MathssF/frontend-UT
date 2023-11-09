@@ -1,20 +1,22 @@
 import { createContext, useEffect, useState, ReactNode } from 'react';
 
-interface Genre {
-  id: number;
-  name: string;
-  select?: boolean;
-}
+// interface Genre {
+//   id: number;
+//   name: string;
+//   select?: boolean;
+// }
 
-interface GenresContextProps {
-  genres: Genre[];
-  setGenres: React.Dispatch<React.SetStateAction<Genre[]>>;
-}
+// interface GenresContextProps {
+//   genres: Genre[];
+//   setGenres: React.Dispatch<React.SetStateAction<Genre[]>>;
+// }
 
-const GenresContext = createContext<GenresContextProps | undefined>(undefined);
+const GenresContext = createContext();
+// const GenresContext = createContext<GenresContextProps | undefined>(undefined);
 
 const GenresProvider = ({ children }) => {
-  const [genres, setGenres] = useState<Genre[]>([]);
+  const [genres, setGenres] = useState([]);
+  // const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
     const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
