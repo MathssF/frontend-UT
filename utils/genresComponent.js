@@ -7,12 +7,15 @@ export default function GenresComponent({ genres, onGenreSelect }) {
       { genres.map((genre) => (
         <div
           key={genre.id}
+          // style={{
+          //   backgroundColor: 'purple'
+          // }}
         >
           <button
             onClick={() => onGenreSelect(genre.id)}
             style={{
               margin: '5px',
-              borderRadius: '10px',
+              borderRadius: '4px',
               padding: '8px 16px',
               cursor: 'pointer',
               display: 'flex',
