@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useEffect, useState } from 'react';
 
 // interface Genre {
 //   id: number;
