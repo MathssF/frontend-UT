@@ -1,0 +1,23 @@
+.genre-button-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .genre-button {
+    margin: 5px;
+    border-radius: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .genre-button.selected {
+    background-color: blue;
+    color: white;
+  }
+  
+  .genre-button.selected::after {
+    content: 'X';
+    margin-left: 5px;
+  }

@@ -1,16 +1,20 @@
 import React from 'react';
+import './style/buttons.css';
 
 export default function GenresComponent({ genres, onGenreSelect }) {
 
   return (
-    <div>
+    <div
+      // className="genre-button-container"
+    >
       { genres.map((genre) => (
         <div
           key={genre.id}
-          style={{ backgroundColor: genre.select ? "blue" : "white" }}
         >
           <button
             onClick={() => onGenreSelect(genre.id)}
+            style={{ backgroundColor: genre.select ? "blue" : "white" }}
+            // className={`genre-button ${genre.select ? 'selected' : ''}`}
           >
             { genre.name }
           </button>
