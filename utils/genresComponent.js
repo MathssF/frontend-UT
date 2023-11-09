@@ -1,22 +1,28 @@
 import React from 'react';
-import './style/buttons.css';
 
 export default function GenresComponent({ genres, onGenreSelect }) {
 
   return (
-    <div
-      // className="genre-button-container"
-    >
+    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
       { genres.map((genre) => (
         <div
           key={genre.id}
         >
           <button
             onClick={() => onGenreSelect(genre.id)}
-            style={{ backgroundColor: genre.select ? "blue" : "white" }}
-            // className={`genre-button ${genre.select ? 'selected' : ''}`}
+            style={{
+              margin: '5px',
+              borderRadius: '10px',
+              padding: '8px 16px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              backgroundColor: genre.select ? "blue" : "white",
+              color: genre.select ? 'white' : 'black'
+            }}
           >
             { genre.name }
+            { genre.select && <span style={{ marginLeft: '5px' }}>X</span> }
           </button>
         </div>
       )) }
