@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
+import { TitlesProvider } from '../contexts/titlesContext';
+import Titles from './Titles';
 
 export default function Desktop() {
   const { genres, setGenres } = useContext(GenresContext);
@@ -36,6 +38,9 @@ export default function Desktop() {
             genres={genres}
             onGenreSelect={handleGenreSelect}
           />
+        {/* <TitlesProvider>
+          <Titles />
+        </TitlesProvider> */}
       </main>
 
       <footer>
