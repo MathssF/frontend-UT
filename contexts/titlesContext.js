@@ -20,7 +20,7 @@ const TitlesProvider = ({ children }) => {
     .catch(err => console.error('error:' + err));
 
     return (
-      <TitlesContext.Provider value={{genres}}>
+      <TitlesContext.Provider>
         {children}
       </TitlesContext.Provider>
     );
