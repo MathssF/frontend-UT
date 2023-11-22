@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import { GenresContext, GenresProvider } from '../contexts/genresContext';
+import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
 
 export default function Desktop() {
   const { genres, setGenres } = useContext(GenresContext);
+  // const { titles, setTitles } = useContext(TitlesContext);
 
   const handleGenreSelect = (id) => {
     setGenres(prevGenres => prevGenres.map(genre =>
