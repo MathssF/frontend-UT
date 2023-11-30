@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
+import Titles from './Titles'
 
 export default function Desktop() {
   const { genres, setGenres } = useContext(GenresContext);
