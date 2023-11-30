@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import TitlesList from '../contexts/titleList';
 
 export default function Titles(genres) {
   // Iniciando
