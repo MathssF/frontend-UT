@@ -4,13 +4,16 @@ import GenresComponent from './genresComponent';
 
 export default function Desktop() {
   const { genres, setGenres } = useContext(GenresContext);
-  // const { titles, setTitles } = useContext(TitlesContext);
 
   const handleGenreSelect = (id) => {
     setGenres(prevGenres => prevGenres.map(genre =>
         genre.id === id? { ...genre, select: !genre.select} : genre
       ))
   }
+
+  const selectedGenreIds = genres
+    .filter(genre => genre.selected)
+    .map(genre => genre.id);
 
   return (
     <div
@@ -37,7 +40,7 @@ export default function Desktop() {
             onGenreSelect={handleGenreSelect}
           />
         {/* <TitlesProvider>
-          <Titles />
+          <Titles selectedGenreIds={selectedGenreIds} />
         </TitlesProvider> */}
       </main>
 

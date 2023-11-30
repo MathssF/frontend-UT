@@ -1,6 +1,3 @@
-// import { createContext, useEffect, useState } from 'react';
-// import fetch from
-
 const TitlesList = ({ children }) => {
   const fetch = require('node-fetch');
 
@@ -13,13 +10,13 @@ const TitlesList = ({ children }) => {
     }
   };
   
-  fetch(url, options)
+  return fetch(url, options)
     .then(res => res.json())
     .then(json => console.log(json))
-    .catch(err => console.error('error:' + err));
-
-    return (
-    );
+    .catch(err => {
+      console.error('error:' + err)
+      return [];
+    });
 };
 
 export default TitlesList;

@@ -1,11 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titleList';
 
 export default function Titles(genres) {
-  // Iniciando
-  const { titles, setTitles } = useContext(TitlesContext);
+  const [titles, setTitles] = useState([]);
+
+  useEffect(() => {
+    TitlesList().then(titlesArray => {
+      setTitles(titlesArray);
+    });
+  }, []);
   
   return (
-    <div>Opa</div>
+    <div>
+      {titles.map(title => (
+        <div key={title}>{title}</div>
+      ))}
+    </div>
   );
 }
