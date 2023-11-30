@@ -1,8 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
+// import fetch from
 
-const TitlesContext = createContext();
-
-const TitlesProvider = ({ children }) => {
+const TitlesList = ({ children }) => {
   const fetch = require('node-fetch');
 
   const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
@@ -20,9 +19,6 @@ const TitlesProvider = ({ children }) => {
     .catch(err => console.error('error:' + err));
 
     return (
-      <TitlesContext.Provider>
-        {children}
-      </TitlesContext.Provider>
     );
 };
 
