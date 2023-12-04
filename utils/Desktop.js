@@ -40,9 +40,7 @@ export default function Desktop() {
             genres={genres}
             onGenreSelect={handleGenreSelect}
           />
-        {/* <TitlesProvider>
-          <Titles selectedGenreIds={selectedGenreIds} />
-        </TitlesProvider> */}
+        <Titles selectedGenreIds={selectedGenreIds} />
       </main>
 
       <footer>
