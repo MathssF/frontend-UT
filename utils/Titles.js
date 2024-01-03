@@ -21,7 +21,16 @@ export default function Titles({ genres }) {
   return (
     <div>
       {filteredTitles.map(title => (
-        <div key={title.id}>{title.title}</div>
+        <div key={title.id}>
+          <img src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`} alt={title.title} />
+          {title.title}
+          {new Date(title.release_date).toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric',
+          })}
+          {/* {title.release_date} */}
+        </div>
       ))}
     </div>
   );
