@@ -22,6 +22,8 @@ export default function Titles({ genres }) {
   const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
+    marginLeft: '32px',
+    // marginRight: '80px',
   };
 
   const titleStyle = {
