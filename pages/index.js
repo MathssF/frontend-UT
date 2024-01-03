@@ -1,4 +1,3 @@
-import '../styles/styles.css';
 import React, { useContext } from 'react';
 import { GenresProvider } from '../contexts/genresContext';
 import Desktop from '../utils/Desktop';
