@@ -21,15 +21,21 @@ export default function Desktop() {
   console.log('LISTA SELECIONADOS: ', selectedGenreIds);
 
   return (
-    <div>
-      <header>
+    <div style={{ border: 0, margin: 0, padding: 0, boxSizing: 'border-box' }}>
+      <header
+        style={{
+          margin: 0,
+          padding: 0,
+        }}
+      >
         <div
           style={{
-            padding: '0px',
-            margin: '0px',
             backgroundColor: '#E73980',
             height: '54px',
-        }}>
+            margin: 0,
+            padding: 0,
+          }}
+        >
           <p>TMBD</p>
         </div>
       </header>
@@ -39,6 +45,8 @@ export default function Desktop() {
           backgroundColor: '#861040',
           height: '450px',
           overflow: 'auto',
+          margin: 0,
+          padding: '30px 0 0', // Adicionando 30px acima
         }}
       >
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
@@ -52,12 +60,19 @@ export default function Desktop() {
       <div
         style={{
           backgroundColor: 'white',
+          margin: '30px 0 0', // Adicionando 30px acima
+          padding: '20px', // Adicionando 20px dentro da DIV Titles
         }}
       >
         <Titles genres={selectedGenreIds} />
       </div>
 
-      <footer>
+      <footer
+        style={{
+          margin: 0,
+          padding: 0,
+        }}
+      >
         <p>© {new Date().getFullYear()} My Next.js App</p>
       </footer>
     </div>
