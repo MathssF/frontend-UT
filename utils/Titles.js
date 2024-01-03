@@ -18,20 +18,23 @@ export default function Titles({ genres }) {
     ? titles.filter(title => title.genre_ids.some(genreId => genres.includes(genreId)))
     : titles;
 
-  return (
-    <div>
-      {filteredTitles.map(title => (
-        <div key={title.id}>
-          <img src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`} alt={title.title} />
-          {title.title}
-          {new Date(title.release_date).toLocaleDateString('pt-BR', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-          {/* {title.release_date} */}
-        </div>
-      ))}
-    </div>
-  );
+    return (
+      <div>
+        {filteredTitles.map(title => (
+          <div key={title.id} style={{ maxWidth: '176px' }}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+              alt={title.title}
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
+            {title.title}
+            {new Date(title.release_date).toLocaleDateString('pt-BR', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </div>
+        ))}
+      </div>
+    );
 }
