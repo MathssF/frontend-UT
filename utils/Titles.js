@@ -22,13 +22,14 @@ export default function Titles({ genres }) {
   const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
+    marginLeft: '-32px', // Compensar a margem à esquerda do primeiro elemento
+    marginRight: '-32px', // Compensar a margem à direita do último elemento
   };
 
   const titleStyle = {
     boxSizing: 'border-box',
     maxWidth: '176px',
-    marginRight: '32px',
-    marginBottom: '48px',
+    margin: '0 32px 48px 32px', // 0 à esquerda, 32px à direita, 48px abaixo e 32px acima
   };
 
   return (
