@@ -10,13 +10,6 @@ const TitlesList = async ({ children }) => {
     }
   };
   
-  // return fetch(url, options)
-  //   .then(res => res.json())
-  //   .then(json => console.log(json))
-  //   .catch(err => {
-  //     console.error('error:' + err)
-  //     return [];
-  //   });
   try {
     const response = await fetch(url, options);
     const json = await response.json();
