@@ -21,11 +21,11 @@ export default function GenresComponent({ genres, onGenreSelect }) {
               display: 'flex',
               alignItems: 'center',
               backgroundColor: genre.selected ? "blue" : "white",
-              color: genre.select ? 'white' : 'black'
+              color: genre.selected ? 'white' : 'black'
             }}
           >
             { genre.name }
-            { genre.select && <span style={{ marginLeft: '5px' }}>X</span> }
+            { genre.selected && <span style={{ marginLeft: '5px' }}>X</span> }
           </button>
         </div>
       )) }

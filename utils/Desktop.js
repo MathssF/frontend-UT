@@ -46,10 +46,20 @@ export default function Desktop() {
           height: '450px',
           overflow: 'auto',
           margin: 0,
-          padding: '30px 0 0', // Adicionando 30px acima
+          padding: '30px 0 0',
         }}
       >
-        <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
+        <p style={{
+          fontSize: '48px',
+          marginTop: '85px',
+          color: 'white',
+          maxWidth: '781px',
+          width: '100%',
+          margin: '0 auto',
+          textAlign: 'center',
+        }}>
+          <b>Milhões de filmes, séries e pessoas para descobrir. Explore já.</b>
+        </p>
         <p>Filtre por:</p>
         <GenresComponent
           genres={genres}
@@ -60,8 +70,8 @@ export default function Desktop() {
       <div
         style={{
           backgroundColor: 'white',
-          margin: '30px 0 0', // Adicionando 30px acima
-          padding: '20px', // Adicionando 20px dentro da DIV Titles
+          margin: '30px 0 0',
+          padding: '20px',
         }}
       >
         <Titles genres={selectedGenreIds} />
