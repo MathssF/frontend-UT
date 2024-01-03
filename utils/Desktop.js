@@ -21,16 +21,15 @@ export default function Desktop() {
   console.log('LISTA SELECIONADOS: ', selectedGenreIds);
 
   return (
-    <div
-      style={{
-        padding: '0px',
-        margin: '0px',
-        backgroundColor: '#E73980',
-        height: '54px',
-      }}
-    >
+    <div>
       <header>
-        <div>
+        <div
+          style={{
+            padding: '0px',
+            margin: '0px',
+            backgroundColor: '#E73980',
+            height: '54px',
+        }}>
           <p>TMBD</p>
         </div>
       </header>
