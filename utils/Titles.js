@@ -5,10 +5,14 @@ export default function Titles(genres) {
   const [titles, setTitles] = useState([]);
 
   useEffect(() => {
-    TitlesList({ children: [] }).then(titlesArray => {
+    TitlesList({ children: titles }).then(titlesArray => {
       setTitles(titlesArray);
     });
   }, []);
+
+  if (!titles) {
+    return <div>Loading...</div>;git 
+  }
   
   return (
     <div>
