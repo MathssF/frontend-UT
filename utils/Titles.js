@@ -10,14 +10,15 @@ export default function Titles(genres) {
     });
   }, []);
 
-  if (!titles) {
-    return <div>Loading...</div>;git 
+  // Certifique-se de que 'titles' é um array antes de tentar mapear sobre ele
+  if (!Array.isArray(titles) || titles.length === 0) {
+    return <div><h1>Nenhum título disponível</h1></div>;
   }
   
   return (
     <div>
       {titles.map(title => (
-        <div key={title}>{title}</div>
+        <div key={title.id}>{title.title}</div>
       ))}
     </div>
   );

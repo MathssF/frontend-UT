@@ -1,4 +1,4 @@
-const TitlesList = ({ children }) => {
+const TitlesList = async ({ children }) => {
   const fetch = require('node-fetch');
 
   const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
@@ -10,13 +10,28 @@ const TitlesList = ({ children }) => {
     }
   };
   
-  return fetch(url, options)
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(err => {
-      console.error('error:' + err)
+  // return fetch(url, options)
+  //   .then(res => res.json())
+  //   .then(json => console.log(json))
+  //   .catch(err => {
+  //     console.error('error:' + err)
+  //     return [];
+  //   });
+  try {
+    const response = await fetch(url, options);
+    const json = await response.json();
+
+    if (json.results) {
+      return json.results;
+    } else {
+      // Caso nenhum filme seja encontrado
+      console.error('Lista Vazia', json);
       return [];
-    });
+    }
+  } catch (error) {
+    console.error('Erro ao obter dados da API:', error);
+    return [];
+  }
 };
 
 export default TitlesList;
