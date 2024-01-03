@@ -25,8 +25,8 @@ export default function Desktop() {
       style={{
         padding: '0px',
         margin: '0px',
-        backgroundColor: '#E73980', // Cor de fundo para a DIV TMDB
-        height: '54px', // Altura para a DIV TMDB
+        backgroundColor: '#E73980',
+        height: '54px',
       }}
     >
       <header>
@@ -37,9 +37,9 @@ export default function Desktop() {
 
       <main
         style={{
-          backgroundColor: '#861040', // Cor de fundo para a MAIN
-          height: '450px', // Altura máxima para a MAIN
-          overflow: 'auto', // Adicionado para permitir rolar se necessário
+          backgroundColor: '#861040',
+          height: '450px',
+          overflow: 'auto',
         }}
       >
         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
@@ -52,9 +52,7 @@ export default function Desktop() {
 
       <div
         style={{
-          backgroundColor: 'white', // Cor de fundo para a DIV Titles
-          margin: 'auto', // Centralizar a DIV Titles
-          width: '80%', // Largura máxima para a DIV Titles
+          backgroundColor: 'white',
         }}
       >
         <Titles genres={selectedGenreIds} />
