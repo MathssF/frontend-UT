@@ -8,13 +8,19 @@ export default function Desktop() {
 
   const handleGenreSelect = (id) => {
     setGenres(prevGenres => prevGenres.map(genre =>
-        genre.id === id? { ...genre, select: !genre.select} : genre
+        genre.id === id? { ...genre, selected: !genre.selected} : genre
       ))
   }
+
+  console.log('LISTA GENEROS: ', genres);
 
   const selectedGenreIds = genres
     .filter(genre => genre.selected)
     .map(genre => genre.id);
+
+  //
+
+  console.log('LISTA SELECIONADOS: ', selectedGenreIds);
 
   return (
     <div
@@ -40,7 +46,7 @@ export default function Desktop() {
             genres={genres}
             onGenreSelect={handleGenreSelect}
           />
-        <Titles selectedGenreIds={selectedGenreIds} />
+        <Titles genres={selectedGenreIds} />
       </main>
 
       <footer>

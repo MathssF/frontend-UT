@@ -20,7 +20,7 @@ export default function GenresComponent({ genres, onGenreSelect }) {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              backgroundColor: genre.select ? "blue" : "white",
+              backgroundColor: genre.selected ? "blue" : "white",
               color: genre.select ? 'white' : 'black'
             }}
           >
