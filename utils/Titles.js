@@ -10,7 +10,6 @@ export default function Titles({ genres }) {
     });
   }, []);
 
-  // Certifique-se de que 'titles' é um array antes de tentar mapear sobre ele
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
   }

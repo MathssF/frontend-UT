@@ -12,13 +12,13 @@ export default function Desktop() {
     ))
   }
 
-  console.log('LISTA GENEROS: ', genres);
+  // console.log('LISTA GENEROS: ', genres);
 
   const selectedGenreIds = genres
     .filter(genre => genre.selected)
     .map(genre => genre.id);
 
-  console.log('LISTA SELECIONADOS: ', selectedGenreIds);
+  // console.log('LISTA SELECIONADOS: ', selectedGenreIds);
 
   return (
     <div style={{ border: 0, margin: 0, padding: 0, boxSizing: 'border-box' }}>
