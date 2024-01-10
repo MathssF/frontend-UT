@@ -23,7 +23,12 @@ export default function idFilm() {
 
   return (
     <div>
-      <h1>Filme: {film_id}</h1>
+      <img
+            src={`https://image.tmdb.org/t/p/w500/${film_content.poster_path}`}
+            alt={film_content.title}
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+      <h1>{film_content.title}</h1>
     </div>
   )
 }
