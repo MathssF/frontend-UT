@@ -38,7 +38,7 @@ export default function Titles({ genres }) {
         <div key={title.id} style={titleStyle}>
           <img
             src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
-            alt={title.title}
+            alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
             style={{ maxWidth: '100%', height: 'auto' }}
           />
           <br />
