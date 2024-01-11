@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 
 export default function idFilm() {
   const router = useRouter();
-  const { film_id } = router.query;
+  const { movie_id } = router.query;
 
   const fetch = require('node-fetch');
 
-  const url = `https://api.themoviedb.org/3/movie/${film_id}?language=en-US`;
+  const url = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
   const options = {
     method: 'GET',
     headers: {
@@ -23,6 +23,23 @@ export default function idFilm() {
 
   return (
     <div>
+      <header
+        style={{
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: '#E73980',
+            height: '54px',
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          <p>TMBD</p>
+        </div>
+      </header>
       <img
             src={`https://image.tmdb.org/t/p/w500/${film_content.poster_path}`}
             alt={film_content.title}
