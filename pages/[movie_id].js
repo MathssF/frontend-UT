@@ -16,13 +16,18 @@ export default function idFilm() {
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0'
         }
       };
-
-      const response = await fetch(url, options);
-      const data = await response.json();
-      setFilmContent(data);
-      // if (movie_id) {
-      //   fetchDataFilm();
-      // }
+      try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        setFilmContent(data);
+        
+      } catch (error) {
+        console.error('Erro na chamada da API', error);
+      }
+    }
+      
+    if (movie_id) {
+      fetchDataFilm();
     }
   }, [movie_id]);
 
@@ -45,12 +50,16 @@ export default function idFilm() {
           <p>TMBD</p>
         </div>
       </header>
-      <img
+      {filmContent ? (
+        <div>
+          <img
             src={`https://image.tmdb.org/t/p/w500/${filmContent.poster_path}`}
             alt={filmContent.title}
             style={{ maxWidth: '100%', height: 'auto' }}
           />
-      <h1>{filmContent.title}</h1>
+          <h1>{filmContent.title}</h1>
+        </div>
+      ) : <div>Erro de API</div>}
     </div>
   )
 }
