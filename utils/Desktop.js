@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
+import Image from 'next/image';
 import Titles from './Titles'
 import logoSVG from '../images/tmdbLogo.svg';
 
@@ -38,11 +39,14 @@ export default function Desktop() {
             padding: 0,
           }}
         >
-          <p>TMBD</p><logoSVG
-            style={{
-              color: white,
-            }}
-          />
+          <Image
+        src={logoSVG}
+        alt="Logo"
+        width={180}
+        height={24}
+        // padding={10}
+        // margin={10}
+      />
         </div>
       </header>
 
