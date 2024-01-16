@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
 import Titles from './Titles'
-// import './images/tmdbLogo.svg';
+import logoSVG from '../images/tmdbLogo.svg';
+
 
 export default function Desktop() {
   const { genres, setGenres } = useContext(GenresContext);
@@ -37,7 +38,7 @@ export default function Desktop() {
             padding: 0,
           }}
         >
-          <p>TMBD</p>
+          <p>TMBD</p><logoSVG></logoSVG>
         </div>
       </header>
 
