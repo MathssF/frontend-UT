@@ -60,6 +60,7 @@ export default function Desktop() {
           overflow: 'auto',
           margin: 0,
           padding: '30px 0 0',
+          marginBottom: '84px',
         }}
       >
         <p style={{
@@ -77,6 +78,9 @@ export default function Desktop() {
         <GenresComponent
           genres={genres}
           onGenreSelect={handleGenreSelect}
+          // style={{
+          //   marginBot: '84px',
+          // }}
         />
       </main>
 
