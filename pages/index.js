@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { GenresProvider } from '../contexts/genresContext';
 import Desktop from '../utils/Desktop';
-import './index.css'; 
+// import './index.css'; 
 
 export default function IndexMenu() {
   
