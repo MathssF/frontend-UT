@@ -42,14 +42,16 @@ export default function Desktop() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            // marginLeft: '112px',
           }}
         >
           <Image
-        src={logoSVG}
-        alt="Logo"
-        width={180}
-        height={24}
-      />
+            src={logoSVG}
+            alt="Logo"
+            width={180}
+            height={24}
+            style={{ marginLeft: '112px' }}
+          />
         </div>
       </header>
 
