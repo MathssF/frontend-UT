@@ -38,7 +38,11 @@ export default function Desktop() {
             padding: 0,
           }}
         >
-          <p>TMBD</p><logoSVG></logoSVG>
+          <p>TMBD</p><logoSVG
+            style={{
+              color: white,
+            }}
+          />
         </div>
       </header>
 
