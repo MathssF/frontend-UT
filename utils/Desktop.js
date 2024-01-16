@@ -29,6 +29,8 @@ export default function Desktop() {
         style={{
           margin: 0,
           padding: 0,
+          // display: 'flex',
+          // alignItems: 'center',
         }}
       >
         <div
@@ -37,6 +39,9 @@ export default function Desktop() {
             height: '54px',
             margin: 0,
             padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <Image
@@ -44,8 +49,6 @@ export default function Desktop() {
         alt="Logo"
         width={180}
         height={24}
-        // padding={10}
-        // margin={10}
       />
         </div>
       </header>
