@@ -45,21 +45,34 @@ export default function idFilm() {
             height: '54px',
             margin: 0,
             padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
           <p>TMBD</p>
         </div>
       </header>
       {filmContent ? (
-        <div>
+        <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
           <img
             src={`https://image.tmdb.org/t/p/w500/${filmContent.poster_path}`}
             alt={filmContent.title}
-            style={{ maxWidth: '100%', height: 'auto' }}
+            style={{
+              maxWidth: '186px',
+              height: 'auto',
+            }}
           />
-          <h1>{filmContent.title}</h1>
+          <h1 style={{ textAlign: 'center' }}>{filmContent.title}</h1>
         </div>
-      ) : <div>Erro de API</div>}
+      ) : <div style={{ textAlign: 'center' }}>Erro de API</div>}
     </div>
   )
 }
