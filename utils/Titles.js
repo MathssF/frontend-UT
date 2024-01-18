@@ -91,7 +91,7 @@ export default function Titles({ genres }) {
             key={index}
             src={elem.flag}
             alt={elem.lang}
-            style={{ flagStyle }} // Ajuste a posição horizontal conforme necessário
+            style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
             onClick={() => setFlagLang(elem.lang)}
           />
         ))}
