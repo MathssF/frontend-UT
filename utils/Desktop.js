@@ -56,10 +56,10 @@ export default function Desktop() {
       <main
         style={{
           backgroundColor: '#861040',
-          height: '450px',
+          // height: '450px',
           overflow: 'auto',
           margin: 0,
-          padding: '30px 0 0',
+          padding: '30px 0 84px 0',
         }}
       >
         <p style={{
@@ -86,6 +86,7 @@ export default function Desktop() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            color: 'white',
           }}
         />
       </main>
