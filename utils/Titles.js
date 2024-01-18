@@ -22,7 +22,7 @@ export default function Titles({ genres }) {
     display: 'flex',
     flexWrap: 'wrap',
     marginLeft: '32px',
-    // marginRight: '80px',
+    justifyContent: 'center',
   };
 
   const titleStyle = {
@@ -30,6 +30,7 @@ export default function Titles({ genres }) {
     maxWidth: '176px',
     marginRight: '32px',
     marginBottom: '48px',
+    width: 'calc(16.666% - 32px)',
   };
 
   return (

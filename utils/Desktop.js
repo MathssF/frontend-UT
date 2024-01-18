@@ -76,6 +76,8 @@ export default function Desktop() {
         <p
           style={{
             textAlign: 'center',
+            color: 'white',
+            padding: '40px 0 16px 0',
           }}
         >Filtre por:</p>
         <GenresComponent
@@ -86,7 +88,6 @@ export default function Desktop() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            color: 'white',
           }}
         />
       </main>

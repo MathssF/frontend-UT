@@ -1,12 +1,19 @@
-const TitlesList = async ({ children }) => {
+const TitlesList = async ({ children }) => { // , lang, totalPage 
   const fetch = require('node-fetch');
 
-  const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+  const apiKey = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0';
+  const baseUrl = 'https://api.themoviedb.org/3/movie/popular';
+  const language = lang || 'en-US';
+  const itemsPerPage = 30;
+
+  // let allResult = [];
+
+  const url = `${baseUrl}?language=${language}&page=1`;
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0'
+      Authorization: apiKey,
     }
   };
   
