@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import TitlesList from '../contexts/titlesList';
 import flagBR from '../images/brasil.png';
 import flagPT from '../images/portugal.png';
@@ -105,7 +105,7 @@ export default function Titles({ genres }) {
             key={title.id}
             style={titleStyle}
           >
-            <Link to={`/${title.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link href={`/${title.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
               alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
