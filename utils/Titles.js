@@ -59,7 +59,6 @@ export default function Titles({ genres }) {
     maxWidth: '176px',
     marginRight: '32px',
     marginBottom: '48px',
-    // width: 'calc(16.666% - 32px)',
     width: 'calc(20% - 32px)',
   };
 
@@ -67,26 +66,31 @@ export default function Titles({ genres }) {
     display: 'flex',
     justifyContent: 'center',
     marginTop: '16px',
+    marginRight: '8px',
+  };
+
+  const flagsContainerStyle = {
+    marginBottom: '16px', // Espaço antes dos filmes
   };
 
   const flagStyle = {
-    // position: 'absolute',
-    // top: '-100px', // Ajuste a posição vertical conforme necessário
-    width: '16px', // Ajuste o tamanho das bandeiras conforme necessário
+    width: '16px',
     cursor: 'pointer',
   };
 
   return (
     <div style={containerStyle}>
-      {langFlags.map((elem, index) => (
-        <img
-          key={index}
-          src={elem.flag}
-          alt={elem.lang}
-          style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
-          onClick={() => setFlagLang(elem.lang)}
-        />
-      ))}
+      <div style={flagsContainerStyle}>
+        {langFlags.map((elem, index) => (
+          <img
+            key={index}
+            src={elem.flag}
+            alt={elem.lang}
+            style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
+            onClick={() => setFlagLang(elem.lang)}
+          />
+        ))}
+      </div>
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
