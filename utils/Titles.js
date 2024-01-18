@@ -69,9 +69,26 @@ export default function Titles({ genres }) {
     marginTop: '16px',
   };
 
+  const flagStyle = {
+    position: 'absolute',
+    top: '-32px', // Ajuste a posição vertical conforme necessário
+    width: '16px', // Ajuste o tamanho das bandeiras conforme necessário
+    cursor: 'pointer',
+  };
+
   return (
     <div style={containerStyle}>
-      <div></div>
+      {/* <div>
+      {langFlags.map((elem, index) => (
+          <img
+            key={index}
+            src={elem.flag}
+            alt={elem.lang}
+            style={{ width: '24px', cursor: 'pointer', margin: '4px' }}
+            onClick={() => setFlagLang(elem.lang)}
+          />
+        ))}
+      </div> */}
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
@@ -90,6 +107,15 @@ export default function Titles({ genres }) {
         </div>
       ))}
       <br />
+      {langFlags.map((elem, index) => (
+        <img
+          key={index}
+          src={elem.flag}
+          alt={elem.lang}
+          style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
+          onClick={() => setFlagLang(elem.lang)}
+        />
+      ))}
       <div style={pageNumbersStyle}>
         { pageList.map((pg, index) => (
           <b
