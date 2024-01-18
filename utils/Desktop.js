@@ -73,12 +73,19 @@ export default function Desktop() {
         }}>
           <b>Milhões de filmes, séries e pessoas para descobrir. Explore já.</b>
         </p>
-        <p>Filtre por:</p>
+        <p
+          style={{
+            textAlign: 'center',
+          }}
+        >Filtre por:</p>
         <GenresComponent
           genres={genres}
           onGenreSelect={handleGenreSelect}
           style={{
             marginBottom: '84px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         />
       </main>

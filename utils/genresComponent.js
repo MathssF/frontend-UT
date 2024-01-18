@@ -3,7 +3,12 @@ import React from 'react';
 export default function GenresComponent({ genres, onGenreSelect }) {
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
       { genres.map((genre) => (
         <div
           key={genre.id}
