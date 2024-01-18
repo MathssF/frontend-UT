@@ -9,7 +9,7 @@ const TitlesList = async ({ children, lang, page, itQtd }) => { // , lang, total
   const startItem = (page - 1) * itemsPerPage + 1;
   const endItem = startItem + itemsPerPage - 1;
 
-  const url = `${baseUrl}?language=${language}&page=1`;
+  const url = `${baseUrl}?language=${language}&page=2`;
   const options = {
     method: 'GET',
     headers: {
