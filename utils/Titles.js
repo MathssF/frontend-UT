@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
-// import flagBR from '../images/brasil.png';
-// import flagPT from '../images/portugal.png';
-// import flagUS from '../images/estados-unidos.png';
-// import flagEN from '../images/inglaterra.png';
-// import flagFR from '../images/franca.png';
-// import flagIT from '../images/italia.png';
+import flagBR from '../images/brasil.png';
+import flagPT from '../images/portugal.png';
+import flagUS from '../images/estados-unidos.png';
+import flagEN from '../images/inglaterra.png';
+import flagFR from '../images/franca.png';
+import flagIT from '../images/italia.png';
 
 
 export default function Titles({ genres }) {
@@ -30,14 +30,14 @@ export default function Titles({ genres }) {
     });
   }, [pageAtual, flagLang]);
 
-  // const langFlags = [
-  //   { lang: 'pt-BR', flag: flagBR },
-  //   { lang: 'pt-PT', flag: flagPT },
-  //   { lang: 'en-US', flag: flagUS },
-  //   { lang: 'en-GB', flag: flagEN },
-  //   { lang: 'fr', flag: flagFR },
-  //   { lang: 'it', flag: flagIT },
-  // ]
+  const langFlags = [
+    { lang: 'pt-BR', flag: flagBR },
+    { lang: 'pt-PT', flag: flagPT },
+    { lang: 'en-US', flag: flagUS },
+    { lang: 'en-GB', flag: flagEN },
+    { lang: 'fr', flag: flagFR },
+    { lang: 'it', flag: flagIT },
+  ]
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
@@ -69,65 +69,72 @@ export default function Titles({ genres }) {
     marginRight: '8px',
   };
 
-  // const flagsContainerStyle = {
-  //   marginBottom: '16px', // Espaço antes dos filmes
-  // };
+  const flagsContainerStyle = {
+    marginBottom: '16px',
+    display: 'flex',
+    justifyContent: 'center'
+  };
 
-  // const flagStyle = {
-  //   width: '16px',
-  //   cursor: 'pointer',
-  // };
+  const flagStyle = {
+    width: '20px',
+    cursor: 'pointer',
+    marginBottom: '20px',
+    marginLeft: '12px',
+    marginRight: '12px',
+  };
 
   return (
-    <div style={containerStyle}>
-      {/* <div style={flagsContainerStyle}>
+    <>
+      <div style={flagsContainerStyle}>
         {langFlags.map((elem, index) => (
           <img
             key={index}
             src={elem.flag}
             alt={elem.lang}
-            style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
+            style={{ flagStyle }} // Ajuste a posição horizontal conforme necessário
             onClick={() => setFlagLang(elem.lang)}
           />
         ))}
-      </div> */}
-      {filteredTitles.map(title => (
-        <div key={title.id} style={titleStyle}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
-            alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
-            style={{ maxWidth: '100%', height: 'auto' }}
-          />
-          <br />
-          {title.title}
-          <br />
-          {new Date(title.release_date).toLocaleDateString('pt-BR', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </div>
-      ))}
-      <br />
-
-      <div style={pageNumbersStyle}>
-        { pageList.map((pg, index) => (
-          <b
-            key={pg}
-            style={{
-              color: pg === pageAtual ? 'purple' : 'black',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-              padding: '8px 16px',
-              margin: index > 0 ? '0 8px' : '0',      
-            }}
-            onClick={() => handlePageClick(pg)}
-          >
-            { pg }
-          </b>
-        )) }
       </div>
-    </div>
+      <div style={containerStyle}>
+        {filteredTitles.map(title => (
+          <div key={title.id} style={titleStyle}>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+              alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
+            <br />
+            {title.title}
+            <br />
+            {new Date(title.release_date).toLocaleDateString('pt-BR', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </div>
+        ))}
+        <br />
+
+        <div style={pageNumbersStyle}>
+          { pageList.map((pg, index) => (
+            <b
+              key={pg}
+              style={{
+                color: pg === pageAtual ? 'purple' : 'black',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                padding: '8px 16px',
+                margin: index > 0 ? '0 8px' : '0',      
+              }}
+              onClick={() => handlePageClick(pg)}
+            >
+              { pg }
+            </b>
+          )) }
+        </div>
+      </div>
+    </>
   );
 }
 
