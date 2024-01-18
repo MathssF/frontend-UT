@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
-// import flagBR from '../images/bgit
+// import flagBR from '../images/brasil.png';
+// import flagPT from '../images/portugal.png';
+// import flagUS from '../images/estados-unidos.png';
+// import flagEN from '../images/inglaterra.png';
+// import flagFR from '../images/franca.png';
+// import flagIT from '../images/italia.png';
 
 
 export default function Titles({ genres }) {
