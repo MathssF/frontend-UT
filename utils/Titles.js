@@ -5,7 +5,11 @@ export default function Titles({ genres }) {
   const [titles, setTitles] = useState([]);
 
   useEffect(() => {
-    TitlesList({ children: titles }).then(titlesArray => {
+    TitlesList({
+      children: titles,
+      lang: 'en-US',
+      page: 1,
+    }).then(titlesArray => {
       setTitles(titlesArray);
     });
   }, []);
