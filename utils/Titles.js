@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFlag } from '@fortawesome/free-solid-svg-icons';
+import { faFlag as faFlagRegular } from '@fortawesome/free-regular-svg-icons';
+
 
 export default function Titles({ genres }) {
   const [titles, setTitles] = useState([]);
@@ -21,7 +25,17 @@ export default function Titles({ genres }) {
     }).then(titlesArray => {
       setTitles(titlesArray);
     });
-  }, [pageAtual]);
+  }, [pageAtual, flagLang]);
+
+  const languageFlags = {
+    'en-US': faFlag,
+    'en-GB': faFlag,
+    'pt-BR': faFlag,
+    'pt-PT': faFlag,
+    'es': faFlag,
+    'fr': faFlag,
+    'it': faFlag,
+  };
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
@@ -55,6 +69,22 @@ export default function Titles({ genres }) {
 
   return (
     <div style={containerStyle}>
+      <div style={{ marginBottom: '16px' }}>
+        {/* Mapeia as bandeiras para cada idioma */}
+        {Object.entries(languageFlags).map(([lang, flagIcon]) => (
+          <span
+            key={lang}
+            style={{
+              cursor: 'pointer',
+              margin: '0 8px',
+            }}
+            onClick={() => setLanguage(lang)}
+          >
+            <FontAwesomeIcon icon={flagLang === lang ? flagIcon : faFlagRegular} />
+            <span style={{ marginLeft: '4px' }}>{lang}</span>
+          </span>
+        ))}
+      </div>
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
