@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import TitlesList from '../contexts/titlesList';
 import flagBR from '../images/brasil.png';
 import flagPT from '../images/portugal.png';
@@ -86,19 +87,25 @@ export default function Titles({ genres }) {
   return (
     <>
       <div style={flagsContainerStyle}>
-        {langFlags.map((elem, index) => (
+        {langFlags.map((elem, index) => {
+          console.log('Icones, créditos ao Roundicons: https://www.flaticon.com/br/autores/roundicons');
+          return (
           <img
             key={index}
-            src={elem.flag}
+            src={elem.flag.src}
             alt={elem.lang}
             style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
             onClick={() => setFlagLang(elem.lang)}
           />
-        ))}
+        )})}
       </div>
       <div style={containerStyle}>
         {filteredTitles.map(title => (
-          <div key={title.id} style={titleStyle}>
+          <div
+            key={title.id}
+            style={titleStyle}
+          >
+            <Link to={`/${title.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
               alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
@@ -106,6 +113,7 @@ export default function Titles({ genres }) {
             />
             <br />
             {title.title}
+            </Link>
             <br />
             {new Date(title.release_date).toLocaleDateString('pt-BR', {
               day: 'numeric',
@@ -139,5 +147,4 @@ export default function Titles({ genres }) {
 }
 
 
-// <a href="https://www.flaticon.com/br/icones-gratis/italia" title="itália ícones">Itália ícones criados por Roundicons - Flaticon</a>
-// https://www.flaticon.com/br/autores/roundicons
+// Icones, crédito ao Roundicons: https://www.flaticon.com/br/autores/roundicons
