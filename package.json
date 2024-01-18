@@ -12,6 +12,9 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "css": "^3.0.0",
     "next": "^13.4.13",
     "node-fetch": "^2.7.0",

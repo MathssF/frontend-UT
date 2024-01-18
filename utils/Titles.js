@@ -7,6 +7,8 @@ export default function Titles({ genres }) {
   const [pageAtual, setPageAtual] = useState(1);
   const pageList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  const [flagLang, setFlagLang] = useState('en-US');
+
   const handlePageClick = (pg) => {
     setPageAtual(pg);
   };
@@ -14,12 +16,12 @@ export default function Titles({ genres }) {
   useEffect(() => {
     TitlesList({
       children: titles,
-      lang: 'en-US',
+      lang: flagLang,
       page: pageAtual,
     }).then(titlesArray => {
       setTitles(titlesArray);
     });
-  }, []);
+  }, [pageAtual]);
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
