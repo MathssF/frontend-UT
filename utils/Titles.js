@@ -24,15 +24,15 @@ export default function Titles({ genres }) {
     });
   }, [pageAtual, flagLang]);
 
-  const languageFlags = {
-    'en-US': faFlag,
-    'en-GB': faFlag,
-    'pt-BR': faFlag,
-    'pt-PT': faFlag,
-    'es': faFlag,
-    'fr': faFlag,
-    'it': faFlag,
-  };
+  // const languageFlags = {
+  //   'en-US': faFlag,
+  //   'en-GB': faFlag,
+  //   'pt-BR': faFlag,
+  //   'pt-PT': faFlag,
+  //   'es': faFlag,
+  //   'fr': faFlag,
+  //   'it': faFlag,
+  // };
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
