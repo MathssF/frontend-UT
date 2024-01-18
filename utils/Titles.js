@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
-import flagBR from '../images/brasil.png';
-import flagPT from '../images/portugal.png';
-import flagUS from '../images/estados-unidos.png';
-import flagEN from '../images/inglaterra.png';
-import flagFR from '../images/franca.png';
-import flagIT from '../images/italia.png';
+// import flagBR from '../images/bgit
 
 
 export default function Titles({ genres }) {
@@ -30,14 +25,14 @@ export default function Titles({ genres }) {
     });
   }, [pageAtual, flagLang]);
 
-  const langFlags = [
-    { lang: 'pt-BR', flag: flagBR },
-    { lang: 'pt-PT', flag: flagPT },
-    { lang: 'en-US', flag: flagUS },
-    { lang: 'en-GB', flag: flagEN },
-    { lang: 'fr', flag: flagFR },
-    { lang: 'it', flag: flagIT },
-  ]
+  // const langFlags = [
+  //   { lang: 'pt-BR', flag: flagBR },
+  //   { lang: 'pt-PT', flag: flagPT },
+  //   { lang: 'en-US', flag: flagUS },
+  //   { lang: 'en-GB', flag: flagEN },
+  //   { lang: 'fr', flag: flagFR },
+  //   { lang: 'it', flag: flagIT },
+  // ]
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
@@ -69,18 +64,18 @@ export default function Titles({ genres }) {
     marginRight: '8px',
   };
 
-  const flagsContainerStyle = {
-    marginBottom: '16px', // Espaço antes dos filmes
-  };
+  // const flagsContainerStyle = {
+  //   marginBottom: '16px', // Espaço antes dos filmes
+  // };
 
-  const flagStyle = {
-    width: '16px',
-    cursor: 'pointer',
-  };
+  // const flagStyle = {
+  //   width: '16px',
+  //   cursor: 'pointer',
+  // };
 
   return (
     <div style={containerStyle}>
-      <div style={flagsContainerStyle}>
+      {/* <div style={flagsContainerStyle}>
         {langFlags.map((elem, index) => (
           <img
             key={index}
@@ -90,7 +85,7 @@ export default function Titles({ genres }) {
             onClick={() => setFlagLang(elem.lang)}
           />
         ))}
-      </div>
+      </div> */}
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
