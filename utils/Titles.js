@@ -4,11 +4,13 @@ import TitlesList from '../contexts/titlesList';
 export default function Titles({ genres }) {
   const [titles, setTitles] = useState([]);
 
+  let pageAtual = 1;
+
   useEffect(() => {
     TitlesList({
       children: titles,
       lang: 'en-US',
-      page: 1,
+      page: pageAtual,
     }).then(titlesArray => {
       setTitles(titlesArray);
     });
@@ -56,6 +58,8 @@ export default function Titles({ genres }) {
           })}
         </div>
       ))}
+
+      <div></div>
     </div>
   );
 }
