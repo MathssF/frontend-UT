@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFlag } from '@fortawesome/free-solid-svg-icons';
-import { faFlag as faFlagRegular } from '@fortawesome/free-regular-svg-icons';
 
 
 export default function Titles({ genres }) {
@@ -69,22 +66,6 @@ export default function Titles({ genres }) {
 
   return (
     <div style={containerStyle}>
-      <div style={{ marginBottom: '16px' }}>
-        {/* Mapeia as bandeiras para cada idioma */}
-        {Object.entries(languageFlags).map(([lang, flagIcon]) => (
-          <span
-            key={lang}
-            style={{
-              cursor: 'pointer',
-              margin: '0 8px',
-            }}
-            onClick={() => setLanguage(lang)}
-          >
-            <FontAwesomeIcon icon={flagLang === lang ? flagIcon : faFlagRegular} />
-            <span style={{ marginLeft: '4px' }}>{lang}</span>
-          </span>
-        ))}
-      </div>
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
