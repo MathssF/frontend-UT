@@ -5,9 +5,6 @@ const TitlesList = async ({ children, lang, page, itQtd }) => { // , lang, total
   const baseUrl = 'https://api.themoviedb.org/3/movie/popular';
   const language = lang || 'en-US';
 
-  // const startItem = (page - 1) * itemsPerPage + 1;
-  // const endItem = startItem + itemsPerPage - 1;
-
   const url = `${baseUrl}?language=${language}&page=${page}`;
   const options = {
     method: 'GET',
@@ -23,8 +20,6 @@ const TitlesList = async ({ children, lang, page, itQtd }) => { // , lang, total
 
     if (json.results) {
       return json.results;
-      // const filteredResults = json.results.slice(startItem - 1, endItem);
-      // return filteredResults;
     } else {
       // Caso nenhum filme seja encontrado
       console.error('Lista Vazia', json);

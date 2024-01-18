@@ -4,7 +4,12 @@ import TitlesList from '../contexts/titlesList';
 export default function Titles({ genres }) {
   const [titles, setTitles] = useState([]);
 
-  let pageAtual = 1;
+  const [pageAtual, setPageAtual] = useState(1);
+  const pageList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  const handlePageClick = (pg) => {
+    setPageAtual(pg);
+  };
 
   useEffect(() => {
     TitlesList({
@@ -36,7 +41,14 @@ export default function Titles({ genres }) {
     maxWidth: '176px',
     marginRight: '32px',
     marginBottom: '48px',
-    width: 'calc(16.666% - 32px)',
+    // width: 'calc(16.666% - 32px)',
+    width: 'calc(20% - 32px)',
+  };
+
+  const pageNumbersStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '16px',
   };
 
   return (
@@ -58,8 +70,24 @@ export default function Titles({ genres }) {
           })}
         </div>
       ))}
-
-      <div></div>
+      <br />
+      <div style={pageNumbersStyle}>
+        { pageList.map((pg, index) => (
+          <b
+            key={pg}
+            style={{
+              color: pg === pageAtual ? 'purple' : 'black',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              padding: '8px 16px',
+              margin: index > 0 ? '0 8px' : '0',      
+            }}
+            onClick={() => handlePageClick(pg)}
+          >
+            { pg }
+          </b>
+        )) }
+      </div>
     </div>
   );
 }
