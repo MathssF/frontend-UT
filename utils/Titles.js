@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TitlesList from '../contexts/titlesList';
+import flagBR from '../images/brasil.png';
+import flagPT from '../images/portugal.png';
+import flagUS from '../images/estados-unidos.png';
+import flagEN from '../images/inglaterra.png';
+import flagFR from '../images/franca.png';
+import flagIT from '../images/italia.png';
 
 
 export default function Titles({ genres }) {
@@ -24,15 +30,14 @@ export default function Titles({ genres }) {
     });
   }, [pageAtual, flagLang]);
 
-  // const languageFlags = {
-  //   'en-US': faFlag,
-  //   'en-GB': faFlag,
-  //   'pt-BR': faFlag,
-  //   'pt-PT': faFlag,
-  //   'es': faFlag,
-  //   'fr': faFlag,
-  //   'it': faFlag,
-  // };
+  const langFlags = [
+    { lang: 'pt-BR', flag: flagBR },
+    { lang: 'pt-PT', flag: flagPT },
+    { lang: 'en-US', flag: flagUS },
+    { lang: 'en-GB', flag: flagEN },
+    { lang: 'fr', flag: flagFR },
+    { lang: 'it', flag: flagIT },
+  ]
 
   if (!Array.isArray(titles) || titles.length === 0) {
     return <div><h1>Nenhum título disponível</h1></div>;
@@ -66,6 +71,7 @@ export default function Titles({ genres }) {
 
   return (
     <div style={containerStyle}>
+      <div></div>
       {filteredTitles.map(title => (
         <div key={title.id} style={titleStyle}>
           <img
@@ -104,3 +110,7 @@ export default function Titles({ genres }) {
     </div>
   );
 }
+
+
+// <a href="https://www.flaticon.com/br/icones-gratis/italia" title="itália ícones">Itália ícones criados por Roundicons - Flaticon</a>
+// https://www.flaticon.com/br/autores/roundicons
