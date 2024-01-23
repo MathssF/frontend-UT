@@ -28,34 +28,34 @@ const MovieDetails = ({ movieData }) => {
 const RatingCircle = ({ voteRat }) => {
 
     const percentage = voteRat * 10;
-    const radius = 30; // raio do círculo
-    const circumference = 2 * Math.PI * radius; // circunferência do círculo
+    const radius = 30;
+    const circumference = 2 * Math.PI * radius;
   
     const progress = (percentage / 100) * circumference;
     const remaining = circumference - progress;
   
     return (
-      <svg width="60" height="60" viewBox="0 0 60 60">
+      <svg
+        width="60"
+        height="60"
+        viewBox="0 0 60 60"
+        // style={{ marginBottom: '16px' }}
+        margin-bottom="16"
+      >
         <circle
           cx="30"
           cy="30"
           r={radius}
-          //  fill="none"
-          //  stroke="#f0f0f0" // cor de fundo do círculo (cinza claro)
-          //  fill="#FFFFFF"
           fill="rgba(255, 255, 255, 0.1)"
           strokeWidth="5"
         />
         <circle
           cx="30"
           cy="30"
-        //   r={radius}
           r={radius - 2.5}
           fill="none"
-          stroke="#14FF00" // cor do círculo preenchido (verde)
+          stroke="#14FF00"
           strokeWidth="5"
-        //   strokeDasharray={`${progress} ${remaining}`}
-        //   strokeDashoffset="0"
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={circumference - progress}
           strokeLinecap="round"
@@ -70,7 +70,7 @@ const RatingCircle = ({ voteRat }) => {
           fontFamily="Roboto"
           fontWeight="bold"
           fontSize="12"
-          fill="#14FF00" // cor do texto (branco)
+          fill="#14FF00"
         >
           {percentage}%
         </text>

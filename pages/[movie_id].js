@@ -112,11 +112,16 @@ export default function idFilm() {
                 </h1>
                 <MovieDetails
                   movieData={filmContent}
-                  style={{
-                    marginBottom: '16px'
-                  }}
+                  // style={{
+                  //   marginBottom: '16px',
+                  // }}
                 />
-                <RatingCircle voteRat={filmContent.vote_average}/>
+                <RatingCircle
+                  voteRat={filmContent.vote_average}
+                  // style={{
+                  //   marginTop: '16px',
+                  // }}
+                />
               </div>
             </div>
           </div>
