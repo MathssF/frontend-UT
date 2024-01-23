@@ -25,4 +25,48 @@ const MovieDetails = ({ movieData }) => {
   );
 };
 
-export default MovieDetails;
+const RatingCircle = ({ percentage }) => {
+    const radius = 30; // raio do círculo
+    const circumference = 2 * Math.PI * radius; // circunferência do círculo
+  
+    const progress = (percentage / 100) * circumference;
+    const remaining = circumference - progress;
+  
+    return (
+      <svg width="60" height="60" viewBox="0 0 60 60">
+        <circle
+          cx="30"
+          cy="30"
+          r={radius}
+          fill="none"
+          stroke="#f0f0f0" // cor de fundo do círculo (cinza claro)
+          strokeWidth="5"
+        />
+        <circle
+          cx="30"
+          cy="30"
+          r={radius}
+          fill="none"
+          stroke="#4CAF50" // cor do círculo preenchido (verde)
+          strokeWidth="5"
+          strokeDasharray={`${progress} ${remaining}`}
+          strokeDashoffset="0"
+          strokeLinecap="round"
+          transform="rotate(-90 30 30)"
+        />
+        <text
+          x="50%"
+          y="50%"
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fontFamily="Roboto"
+          fontSize="12"
+          fill="#ffffff" // cor do texto (branco)
+        >
+          {percentage}%
+        </text>
+      </svg>
+    );
+  };
+
+export { MovieDetails, RatingCircle };
