@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import logoSVG from '../images/tmdbLogo.svg';
-import { MovieDetails, RatingCircle } from '../utils/MovieComponents';
+import {
+  MovieDetails,
+  RatingCircle,
+  SinopseComponent,
+} from '../utils/MovieComponents';
 
 export default function idFilm() {
   const router = useRouter();
@@ -112,9 +116,29 @@ export default function idFilm() {
                   movieData={filmContent}
                 />
                 <br />
-                <RatingCircle
-                  voteRat={filmContent.vote_average}
-                />
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <RatingCircle
+                    voteRat={filmContent.vote_average}
+                  />
+                  <p
+                    style={{
+                      fontSize: '20px',
+                      color: '#ffffff',
+                      fontFamily: 'Roboto, sans-serif',
+                      marginLeft: '12px',
+                      maxWidth: '115px',
+                    }}
+                  >
+                    Avaliação dos usuários
+                  </p>
+                </div>
+                <br />
+                <SinopseComponent overview={filmContent.overview} />
               </div>
             </div>
           </div>
