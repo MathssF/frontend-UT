@@ -53,10 +53,13 @@ const RatingCircle = ({ voteRat }) => {
           fill="none"
           stroke="#14FF00" // cor do círculo preenchido (verde)
           strokeWidth="5"
-          strokeDasharray={`${progress} ${remaining}`}
-          strokeDashoffset="0"
+        //   strokeDasharray={`${progress} ${remaining}`}
+        //   strokeDashoffset="0"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={circumference - progress}
           strokeLinecap="round"
           transform="rotate(-90 30 30)"
+          border="-3px"
         />
         <text
           x="50%"
