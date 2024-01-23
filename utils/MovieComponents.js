@@ -49,7 +49,8 @@ const RatingCircle = ({ voteRat }) => {
         <circle
           cx="30"
           cy="30"
-          r={radius}
+        //   r={radius}
+          r={radius - 2.5}
           fill="none"
           stroke="#14FF00" // cor do círculo preenchido (verde)
           strokeWidth="5"
@@ -68,7 +69,7 @@ const RatingCircle = ({ voteRat }) => {
           dominantBaseline="middle"
           fontFamily="Roboto"
           fontWeight="bold"
-          fontSize="16"
+          fontSize="12"
           fill="#14FF00" // cor do texto (branco)
         >
           {percentage}%
