@@ -72,14 +72,17 @@ export default function idFilm() {
           justifyContent: 'center',
         }}
         >
-          <div>
+          <div
+            style={{
+              margin: '70px 112px 0 0',
+            }}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${filmContent.poster_path}`}
               alt={filmContent.title}
               style={{
                 maxWidth: '186px',
                 height: 'auto',
-                margin: '70px 112px 0 0',
               }}
             />
           </div>
