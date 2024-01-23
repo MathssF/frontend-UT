@@ -84,6 +84,8 @@ export default function Titles({ genres }) {
     marginRight: '12px',
   };
 
+  // className = "pointer mb-4 mx-3 w-4  md:w-8"
+
   return (
     <>
       <div style={flagsContainerStyle}>
