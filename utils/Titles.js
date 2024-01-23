@@ -84,6 +84,10 @@ export default function Titles({ genres }) {
     marginRight: '12px',
   };
 
+  const handleLinkClick = () => {
+    router.push(`/${title.id}`);
+  };
+
   return (
     <>
       <div style={flagsContainerStyle}>
@@ -105,7 +109,7 @@ export default function Titles({ genres }) {
             key={title.id}
             style={titleStyle}
           >
-            <Link href={`/${title.id}`} passHref legacyBehavior>
+            {/* <Link href={`/${title.id}`} passHref legacyBehavior>
               <a style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
@@ -115,7 +119,19 @@ export default function Titles({ genres }) {
                 <br />
                 <strong>{title.title}</strong>
               </a>
-            </Link>
+            </Link> */}
+            <a
+              onClick={handleLinkClick}
+              style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+                alt={`${title.title} ${title.id}`}
+                style={{ maxWidth: '100%', height: 'auto' }}
+              />
+              <br />
+              <b><spam>{title.title}</spam></b>
+            </a>
             <br />
             {new Date(title.release_date).toLocaleDateString('pt-BR', {
               day: 'numeric',
