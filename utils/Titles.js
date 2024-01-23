@@ -105,7 +105,7 @@ export default function Titles({ genres }) {
             key={title.id}
             style={titleStyle}
           >
-            <Link href={`/${title.id}`}>
+            <Link href={`/${title.id}`} passHref legacyBehavior>
               <a style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
