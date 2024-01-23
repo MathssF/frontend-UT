@@ -1,6 +1,6 @@
 import React from 'react';
 
-function movieCredits (id){
+const movieCredits = async (id) => {
   const fetch = require('node-fetch');
 
   const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
@@ -18,6 +18,8 @@ function movieCredits (id){
     .catch(err => console.error('error:' + err));
 };
 
-function movieElenco (id) {
-  const fetch = require
+const movieElenco = async (id) => {
+  const fetch = require('node-fetch');
+
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
 };
