@@ -113,10 +113,10 @@ export default function Titles({ genres }) {
                   style={{ maxWidth: '100%', height: 'auto' }}
                 />
                 <br />
-                <strong>{title.title}</strong>
+                <strong style={{ fontWeight: 'bold' }}>{title.title}</strong>
               </a>
             </Link>
-            <br />
+            {/* <br /> */}
             {new Date(title.release_date).toLocaleDateString('pt-BR', {
               day: 'numeric',
               month: 'short',

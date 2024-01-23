@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import logoSVG from '../images/tmdbLogo.svg';
 
 export default function idFilm() {
   const router = useRouter();
@@ -49,9 +51,16 @@ export default function idFilm() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            position: 'relative',
           }}
         >
-          <p>TMBD</p>
+          <Image
+            src={logoSVG}
+            alt="Logo"
+            width={180}
+            height={24}
+            style={{ position: 'absolute', left: '112px' }}
+          />
         </div>
       </header>
       {filmContent ? (
@@ -62,15 +71,18 @@ export default function idFilm() {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-      >
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${filmContent.poster_path}`}
-            alt={filmContent.title}
-            style={{
-              maxWidth: '186px',
-              height: 'auto',
-            }}
-          />
+        >
+          <div>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${filmContent.poster_path}`}
+              alt={filmContent.title}
+              style={{
+                maxWidth: '186px',
+                height: 'auto',
+                margin: '70px 112px 0 0',
+              }}
+            />
+          </div>
           <h1 style={{ textAlign: 'center' }}>{filmContent.title}</h1>
         </div>
       ) : <div style={{ textAlign: 'center' }}>Erro de API</div>}
