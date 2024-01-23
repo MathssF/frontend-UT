@@ -1,3 +1,4 @@
 # frontend-UT
-Relizando o test da UhuuTech
-https://github.com/uhuutech/teste-frontend
+
+
+Criando um Painel de Front End usando o TMDB

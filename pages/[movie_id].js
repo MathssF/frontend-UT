@@ -5,10 +5,11 @@ export default function idFilm() {
   const router = useRouter();
   const { movie_id } = router.query;
   const [filmContent, setFilmContent] = useState(null);
+  const [lang, setLang] = useState('en-US');
 
   useEffect(() => {
     const fetchDataFilm = async () => {
-      const url = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US`;
+      const url = `https://api.themoviedb.org/3/movie/${movie_id}?language=${lang}`;
       const options = {
         method: 'GET',
         headers: {

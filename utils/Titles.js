@@ -106,13 +106,15 @@ export default function Titles({ genres }) {
             style={titleStyle}
           >
             <Link href={`/${title.id}`}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
-              alt={`${title.title} ${title.id}`} // Title id aqui só na fase de desenvolvimento, após isto, retirar
-              style={{ maxWidth: '100%', height: 'auto' }}
-            />
-            <br />
-            {title.title}
+              <a style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+                  alt={`${title.title} ${title.id}`}
+                  style={{ maxWidth: '100%', height: 'auto' }}
+                />
+                <br />
+                <strong>{title.title}</strong>
+              </a>
             </Link>
             <br />
             {new Date(title.release_date).toLocaleDateString('pt-BR', {
