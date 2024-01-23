@@ -7,6 +7,9 @@ import {
   RatingCircle,
   SinopseComponent,
 } from '../utils/MovieComponents';
+import {
+  movieCredits
+} from '../utils/MovieAPIs';
 
 export default function idFilm() {
   const router = useRouter();
@@ -139,6 +142,8 @@ export default function idFilm() {
                 </div>
                 <br />
                 <SinopseComponent overview={filmContent.overview} />
+                <br />
+                <movieCredits id={ movie_id }/>
               </div>
             </div>
           </div>

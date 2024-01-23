@@ -13,21 +13,16 @@ const movieCredits = async (id) => {
       Authorization: key,
     }
   };
-    
-//   const credits = fetch(url, options)
-//     .then(res => res.json())
-//     .then(json => console.log(json))
-//     .catch(err => console.error('error:' + err));
 
   try {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    const creditsSlice = json.cast.slice(0, 6);
+    const credits = json.cast.slice(0, 6);
 
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {creditsSlice.map((elem, index) => (
+        {credits.map((elem, index) => (
           <div key={index} style={{ flex: '0 0 33%', marginBottom: '16px' }}>
             <p style={{ fontWeight: 'bold' }}>{elem.name}</p>
             <p>{elem.known_for_department}</p>
@@ -37,7 +32,7 @@ const movieCredits = async (id) => {
     );
   } catch (err) {
     console.error('error:', err);
-    return null; // ou algo apropriado para indicar um erro na renderização
+    return (<p>Erro de API</p>);
   }
 };
 
@@ -56,5 +51,5 @@ const movieElenco = async (id) => {
   const elenco = fetch(url, options)
     .then(res => res.json())
     .then(json => console.log(json))
-    .catch(err => console.error('error: ' = err));
+    .catch(err => console.error('error: ' + err));
 };
