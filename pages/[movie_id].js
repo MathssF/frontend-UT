@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import logoSVG from '../images/tmdbLogo.svg';
+import { MovieDetails, RatingCircle } from '../utils/MovieComponents';
 
 export default function idFilm() {
   const router = useRouter();
@@ -33,31 +34,6 @@ export default function idFilm() {
       fetchDataFilm();
     }
   }, [movie_id]);
-
-  const MovieDetails = ({ movieData }) => {
-    const {
-      adult,
-      release_date,
-      genres,
-      runtime,
-    } = movieData;
-  
-    const ageRating = adult ? 'Para Maiores' : 'Livre';
-  
-    const formattedReleaseDate = new Date(release_date).toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
-  
-    const genreNames = genres.map(genre => genre.name).join(', ');
-  
-    return (
-      <p style={{ fontFamily: 'Roboto', fontSize: '18px', color: '#ffffff', textAlign: 'left' }}>
-        {`${ageRating} | ${formattedReleaseDate} | ${genreNames} | ${runtime}min`}
-      </p>
-    );
-  };
 
   return (
     <div>
@@ -134,7 +110,13 @@ export default function idFilm() {
                 }}>
                   {filmContent.title}
                 </h1>
-                <MovieDetails movieData={filmContent} />
+                <MovieDetails
+                  movieData={filmContent}
+                  style={{
+                    marginBottom: '16px'
+                  }}
+                />
+                <RatingCircle voteRat={filmContent.vote_average}/>
               </div>
             </div>
           </div>

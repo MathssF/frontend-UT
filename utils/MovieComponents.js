@@ -25,7 +25,9 @@ const MovieDetails = ({ movieData }) => {
   );
 };
 
-const RatingCircle = ({ percentage }) => {
+const RatingCircle = ({ voteRat }) => {
+
+    const percentage = voteRat * 10;
     const radius = 30; // raio do círculo
     const circumference = 2 * Math.PI * radius; // circunferência do círculo
   
@@ -38,8 +40,10 @@ const RatingCircle = ({ percentage }) => {
           cx="30"
           cy="30"
           r={radius}
-          fill="none"
-          stroke="#f0f0f0" // cor de fundo do círculo (cinza claro)
+          //  fill="none"
+          //  stroke="#f0f0f0" // cor de fundo do círculo (cinza claro)
+          //  fill="#FFFFFF"
+          fill="rgba(255, 255, 255, 0.1)"
           strokeWidth="5"
         />
         <circle
@@ -47,7 +51,7 @@ const RatingCircle = ({ percentage }) => {
           cy="30"
           r={radius}
           fill="none"
-          stroke="#4CAF50" // cor do círculo preenchido (verde)
+          stroke="#14FF00" // cor do círculo preenchido (verde)
           strokeWidth="5"
           strokeDasharray={`${progress} ${remaining}`}
           strokeDashoffset="0"
@@ -60,8 +64,9 @@ const RatingCircle = ({ percentage }) => {
           textAnchor="middle"
           dominantBaseline="middle"
           fontFamily="Roboto"
-          fontSize="12"
-          fill="#ffffff" // cor do texto (branco)
+          fontWeight="bold"
+          fontSize="16"
+          fill="#14FF00" // cor do texto (branco)
         >
           {percentage}%
         </text>
