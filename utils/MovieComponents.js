@@ -39,8 +39,6 @@ const RatingCircle = ({ voteRat }) => {
         width="60"
         height="60"
         viewBox="0 0 60 60"
-        // style={{ marginBottom: '16px' }}
-        margin-bottom="16"
       >
         <circle
           cx="30"

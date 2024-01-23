@@ -82,8 +82,6 @@ export default function idFilm() {
               style={{
                 padding: '70px 0 0 112px',
                 display: 'flex',
-                // justifyContent: 'space-between',
-                // gap: '33px',
               }}
             >
               <img
@@ -112,15 +110,10 @@ export default function idFilm() {
                 </h1>
                 <MovieDetails
                   movieData={filmContent}
-                  // style={{
-                  //   marginBottom: '16px',
-                  // }}
                 />
+                <br />
                 <RatingCircle
                   voteRat={filmContent.vote_average}
-                  // style={{
-                  //   marginTop: '16px',
-                  // }}
                 />
               </div>
             </div>
