@@ -61,13 +61,13 @@ const movieElenco = async (id) => {
     const elenco = json.cast.slice(0, 12);
 
     return (
-      <div style={{ marginLeft: '112px' }}>
+      <div style={{ marginLeft: '42px' }}>
         <p style={{
           marginBottom: '24px', marginTop: '74px',
           fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
        }}>Elenco original</p>
         <div style={{ overflowX: 'scroll',
-          width: '100%', maxWidth: '1855px', height: '100%', maxHeight: '336px',
+          width: '100%', maxWidth: '1100px', height: '100%', maxHeight: '400px',
           display: 'flex', flexDirection: 'row'
         }}>
           {elenco.map((elem, index) => (
