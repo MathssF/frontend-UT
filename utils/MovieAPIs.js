@@ -41,7 +41,7 @@ const movieCredits = async (id) => {
   }
 };
 
-const movieElenco = async (id) => {
+const movieRecomen = async (id) => {
   const fetch = require('node-fetch');
 
   const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
@@ -59,4 +59,4 @@ const movieElenco = async (id) => {
     .catch(err => console.error('error: ' + err));
 };
 
-export { movieCredits, movieElenco };
+export { movieCredits, movieRecomen };

@@ -25,7 +25,6 @@ export default function Desktop() {
       <main
         style={{
           backgroundColor: '#861040',
-          // height: '450px',
           overflow: 'auto',
           margin: 0,
           padding: '30px 0 84px 0',
