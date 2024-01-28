@@ -18,7 +18,11 @@ const movieCredits = async (id) => {
     const response = await fetch(url, options);
     const json = await response.json();
 
+    console.log('json: ', json);
+    
     const credits = json.cast.slice(0, 6);
+
+    console.log('credits: ', credits);
 
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
