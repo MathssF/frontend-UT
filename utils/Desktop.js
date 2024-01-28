@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { GenresContext } from '../contexts/genresContext';
 import GenresComponent from './genresComponent';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Titles from './Titles'
-import logoSVG from '../images/tmdbLogo.svg';
+// import logoSVG from '../images/tmdbLogo.svg';
+import Header from './Header.js';
 
 
 export default function Desktop() {
@@ -21,7 +22,8 @@ export default function Desktop() {
 
   return (
     <div style={{ border: 0, margin: 0, padding: 0, boxSizing: 'border-box' }}>
-      <header
+      <Header />
+      {/* <header
         style={{
           margin: 0,
           padding: 0,
@@ -47,7 +49,7 @@ export default function Desktop() {
             style={{ position: 'absolute', left: '112px' }}
           />
         </div>
-      </header>
+      </header> */}
 
       <main
         style={{

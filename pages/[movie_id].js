@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
-import logoSVG from '../images/tmdbLogo.svg';
+// import Image from 'next/image';
+// import logoSVG from '../images/tmdbLogo.svg';
 import {
   MovieDetails,
   RatingCircle,
@@ -10,6 +10,7 @@ import {
 import {
   movieCredits
 } from '../utils/MovieAPIs';
+import Header from '../utils/Header.js';
 
 export default function idFilm() {
   const router = useRouter();
@@ -54,7 +55,8 @@ export default function idFilm() {
 
   return (
     <div>
-      <header
+      <Header />
+      {/* <header
         style={{
           margin: 0,
           padding: 0,
@@ -80,7 +82,7 @@ export default function idFilm() {
             style={{ position: 'absolute', left: '112px' }}
           />
         </div>
-      </header>
+      </header> */}
       {filmContent ? (
         <div
         style={{
@@ -153,8 +155,6 @@ export default function idFilm() {
                 <br />
                 <SinopseComponent overview={filmContent.overview} />
                 <br />
-                {/* <movieCredits id={ movie_id }/> */}
-                {/* {movieCredits(movie_id)} */}
                 {creditsContent}
               </div>
             </div>
