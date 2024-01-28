@@ -62,8 +62,14 @@ const movieElenco = async (id) => {
 
     return (
       <div style={{ marginLeft: '112px' }}>
-        <p style={{ marginBottom: '24px' }}>Elenco original</p>
-        <div style={{ overflowX: 'auto', width: '1855px', height: '336px' }}>
+        <p style={{
+          marginBottom: '24px', marginTop: '74px',
+          fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
+       }}>Elenco original</p>
+        <div style={{ overflowX: 'scroll',
+          width: '100%', maxWidth: '1855px', height: '100%', maxHeight: '336px',
+          display: 'flex', flexDirection: 'row'
+        }}>
           {elenco.map((elem, index) => (
             <div
               key={index}

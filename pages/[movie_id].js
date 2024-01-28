@@ -136,7 +136,13 @@ export default function idFilm() {
                 <br />
                 <SinopseComponent overview={filmContent.overview} />
                 <br />
-                {creditsContent}
+                <div
+                  style={{
+                    marginLeft: '112px',
+                  }}
+                >
+                  {creditsContent}
+                </div>
               </div>
             </div>
           </div>
