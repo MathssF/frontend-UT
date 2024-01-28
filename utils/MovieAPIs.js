@@ -61,40 +61,35 @@ const movieElenco = async (id) => {
     const elenco = json.cast.slice(0, 12);
 
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        <p
-          style={{
-            marginBottom: '24px',
-          }}
-        >
-          Elenco original
-        </p>
-        {elenco.map((elem, index) => (
-          <div
-            key={index}
-            style={{
-              width: '191px',
-              height: '336px',
-              padding: '8px',
-            }}
-          >
-            <Image
-              src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
-              alt={elem.original_name}
-              width={175}
-              height={222}
+      <div style={{ marginLeft: '112px' }}>
+        <p style={{ marginBottom: '24px' }}>Elenco original</p>
+        <div style={{ overflowX: 'auto', width: '1855px', height: '336px' }}>
+          {elenco.map((elem, index) => (
+            <div
+              key={index}
               style={{
-                marginBottom: '16px',
+                width: '191px',
+                height: '336px',
+                padding: '8px',
+                display: 'inline-block',
               }}
-            />
-            <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
-              {elem.original_name}
-            </p>
-            <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
-              {elem.character}
-            </p>
-          </div>
-        ))}
+            >
+              <Image
+                src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
+                alt={elem.original_name}
+                width={175}
+                height={222}
+                style={{ marginBottom: '16px' }}
+              />
+              <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
+                {elem.original_name}
+              </p>
+              <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
+                {elem.character}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   } catch (err) {
