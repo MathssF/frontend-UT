@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0';
 
@@ -41,6 +42,62 @@ const movieCredits = async (id) => {
   }
 };
 
+const movieElenco = async (id) => {
+  const fetch = require('node-fetch');
+
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: key,
+    }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    const json = await response.json();
+    
+    const elenco = json.cast.slice(0, 12);
+
+    return (
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        <p
+          style={{
+            marginBottom: '24px',
+          }}
+        >
+          Elenco original
+        </p>
+        {elenco.map((elem, index) => (
+          <div
+            key={index}
+            style={{
+              width: '191px',
+              height: '336px',
+              padding: '8px',
+            }}
+          >
+            <Image
+              src={elem.profile_path}
+              width={175}
+              style={{
+                marginBottom: '16px',
+              }}
+            />
+            <p>{elem.original_name}</p>
+            <p>{elem.character}</p>
+          </div>
+        ))}
+      </div>
+    );
+  } catch (err) {
+    console.log('erro no MovieAPIs');
+    console.error('error:', err);
+    return (<p>Erro de API</p>);
+  }
+};
+
 const movieRecomen = async (id) => {
   const fetch = require('node-fetch');
 
@@ -59,4 +116,4 @@ const movieRecomen = async (id) => {
     .catch(err => console.error('error: ' + err));
 };
 
-export { movieCredits, movieRecomen };
+export { movieCredits, movieElenco, movieRecomen };
