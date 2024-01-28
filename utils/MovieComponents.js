@@ -30,8 +30,6 @@ const MovieDetails = ({ movieData }) => {
 const RatingCircle = ({ voteRat }) => {
 
   const percentage = (voteRat * 10).toFixed(2);
-  console.log('voteRat: ', voteRat);
-  console.log('percentage: ', percentage);
   const radius = 30;
   const circumference = 2 * Math.PI * radius;
   

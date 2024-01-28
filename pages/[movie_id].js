@@ -143,7 +143,8 @@ export default function idFilm() {
                 <br />
                 <SinopseComponent overview={filmContent.overview} />
                 <br />
-                <movieCredits id={ movie_id }/>
+                {/* <movieCredits id={ movie_id }/> */}
+                {movieCredits(movie_id)}
               </div>
             </div>
           </div>

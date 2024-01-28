@@ -57,3 +57,5 @@ const movieElenco = async (id) => {
     .then(json => console.log(json))
     .catch(err => console.error('error: ' + err));
 };
+
+export { movieCredits, movieElenco };
