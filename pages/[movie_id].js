@@ -16,6 +16,7 @@ export default function idFilm() {
   const { movie_id } = router.query;
   const [filmContent, setFilmContent] = useState(null);
   const [lang, setLang] = useState('en-US');
+  const [creditsContent, setCreditsContent] = useState(null);
 
   useEffect(() => {
     const fetchDataFilm = async () => {
@@ -144,7 +145,8 @@ export default function idFilm() {
                 <SinopseComponent overview={filmContent.overview} />
                 <br />
                 {/* <movieCredits id={ movie_id }/> */}
-                {movieCredits(movie_id)}
+                {/* {movieCredits(movie_id)} */}
+                {creditsContent}
               </div>
             </div>
           </div>

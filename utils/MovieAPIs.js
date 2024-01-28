@@ -35,6 +35,7 @@ const movieCredits = async (id) => {
       </div>
     );
   } catch (err) {
+    console.log('erro no MovieAPIs');
     console.error('error:', err);
     return (<p>Erro de API</p>);
   }
