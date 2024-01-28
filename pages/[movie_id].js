@@ -41,6 +41,15 @@ export default function idFilm() {
     if (movie_id) {
       fetchDataFilm();
     }
+
+    const fetchCredits = async () => {
+      const credits = await movieCredits(movie_id);
+      setCreditsContent(credits);
+    };
+
+    if (movie_id) {
+      fetchCredits();
+    }
   }, [movie_id]);
 
   return (

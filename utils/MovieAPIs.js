@@ -28,8 +28,8 @@ const movieCredits = async (id) => {
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {credits.map((elem, index) => (
           <div key={index} style={{ flex: '0 0 33%', marginBottom: '16px' }}>
-            <p style={{ fontWeight: 'bold' }}>{elem.name}</p>
-            <p>{elem.known_for_department}</p>
+            <p style={{ fontWeight: 'bold', color: 'white' }}>{elem.name}</p>
+            <p style={{ color: 'white' }}>{elem.known_for_department}</p>
           </div>
         ))}
       </div>
