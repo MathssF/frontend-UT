@@ -6,7 +6,8 @@ import {
   SinopseComponent,
 } from '../utils/MovieComponents';
 import {
-  movieCredits
+  movieCredits,
+  movieElenco,
 } from '../utils/MovieAPIs';
 import Header from '../utils/Header.js';
 
@@ -18,6 +19,7 @@ export default function idFilm() {
   const [filmContent, setFilmContent] = useState(null);
   const [lang, setLang] = useState('en-US');
   const [creditsContent, setCreditsContent] = useState(null);
+  const [elencoContent, setElencoContent] = useState(null);
 
   useEffect(() => {
     const fetchDataFilm = async () => {
@@ -48,8 +50,14 @@ export default function idFilm() {
       setCreditsContent(credits);
     };
 
+    const fetchElenco = async () => {
+      const elenco = await movieElenco(movie_id);
+      setElencoContent(elenco);
+    }
+
     if (movie_id) {
       fetchCredits();
+      fetchElenco();
     }
   }, [movie_id]);
 
@@ -132,7 +140,7 @@ export default function idFilm() {
               </div>
             </div>
           </div>
-          
+          {elencoContent}
 
         </div>
       ) : <div style={{ textAlign: 'center' }}>Erro de API</div>}

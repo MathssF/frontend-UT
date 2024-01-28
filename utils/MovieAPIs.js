@@ -79,14 +79,20 @@ const movieElenco = async (id) => {
             }}
           >
             <Image
-              src={elem.profile_path}
+              src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
+              alt={elem.original_name}
               width={175}
+              height={222}
               style={{
                 marginBottom: '16px',
               }}
             />
-            <p>{elem.original_name}</p>
-            <p>{elem.character}</p>
+            <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
+              {elem.original_name}
+            </p>
+            <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
+              {elem.character}
+            </p>
           </div>
         ))}
       </div>
