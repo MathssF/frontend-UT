@@ -7,9 +7,10 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirecionamento automático para "/popular"
-    router.push('/popular');
-  }, []);
+    if (router.pathname === '/') {
+      router.push('/popular');
+    }
+  }, [router.pathname]);
 
   return <Component {...pageProps} />;
 }
