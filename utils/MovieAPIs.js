@@ -134,18 +134,33 @@ const movieTeasers = async (id) => {
     trailers.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
     if (trailers.length > 0) {
       const latestTrailer = trailers[0];
-      
+      const latestsTrailers = [trailers[0], trailers[1]]
 
       return (
         <div>
-          <h2>Trailers</h2>
-          <iframe
+          <p style={{
+            marginBottom: '24px', marginTop: '74px',
+            fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
+            marginLeft: '112px',
+          }}>Trailers</p>
+          {/* <iframe
             width="560"
             height="315"
             src={`https://www.youtube.com/embed/${latestTrailer.key}`}
             title={latestTrailer.name}
             allowFullScreen
-          />
+          /> */}
+          {latestsTrailers.map((trailer, index) => (
+            <div key={index}>
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${trailer.key}`}
+                title={trailer.name}
+                allowFullScreen
+              />
+            </div>
+          ))}
         </div>
       )
     } else {
@@ -174,47 +189,52 @@ const movieRecomen = async (id) => {
     const response = await fetch(url, options);
     console.log('Response: ', response);
     const json = await response.json();
-    const recomends = json.results.slice(0, 6);
+    const recomends = json.results.slice(0, 5);
     console.log('recomendados: ', recomends);
     return (
       <div style={{ whiteSpace: 'nowrap' }}>
-      {recomends.map((title) => (
-        <div key={title.id} style={{
-          display: 'inline-block',
-          margin: '0 8px 0 0',
-          width: '200px',
-          verticalAlign: 'top',
-          }}>
-          <Link href={`/${title.id}`} passHref legacyBehavior>
-            <a style={{
-              textDecoration: 'none',
-              color: 'inherit',
-              display: 'block',
-              whiteSpace: 'normal',
+        <p style={{
+            marginBottom: '24px', marginTop: '74px',
+            fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
+        }}>Recomendados:</p>
+        <br />
+        {recomends.map((title) => (
+          <div key={title.id} style={{
+            display: 'inline-block',
+            margin: '0 12px 0 0',
+            width: '200px',
+            verticalAlign: 'top',
             }}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
-                alt={`${title.title} ${title.id}`}
-                style={{
-                  maxHeight: '320px',
-                  maxWidth: '176px',
-                  width: 'auto',
-                  height: 'auto',
-                }}
-              />
-              <br />
-              <strong style={{ fontWeight: 'bold', display: 'block' }}>{title.title}</strong>
-            </a>
-          </Link>
-          <span style={{ whiteSpace: 'normal', display: 'block' }}>
-            {new Date(title.release_date).toLocaleDateString('pt-BR', {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric',
-            })}
-          </span>
-        </div>
-      ))}
+            <Link href={`/${title.id}`} passHref legacyBehavior>
+              <a style={{
+                textDecoration: 'none',
+                color: 'inherit',
+                display: 'block',
+                whiteSpace: 'normal',
+              }}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+                  alt={`${title.title} ${title.id}`}
+                  style={{
+                    maxHeight: '320px',
+                    maxWidth: '176px',
+                    width: 'auto',
+                    height: 'auto',
+                  }}
+                />
+                <br />
+                <strong style={{ fontWeight: 'bold', display: 'block' }}>{title.title}</strong>
+              </a>
+            </Link>
+            <span style={{ whiteSpace: 'normal', display: 'block' }}>
+              {new Date(title.release_date).toLocaleDateString('pt-BR', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+              })}
+            </span>
+          </div>
+        ))}
       </div>
     )
   } catch (err) {
