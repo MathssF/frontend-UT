@@ -127,10 +127,42 @@ const movieTeasers = async (id) => {
     }
   };
 
-  const trailers = fetch(url, options)
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(err => console.error('error: ' + err));
+  try {
+    const response = await fetch(url, options);
+    const json = await response.json();
+
+    // Filtra apenas os trailers oficiais
+    const trailers = json.results.filter((video) => video.type === 'Trailer');
+
+    // Ordena os trailers por data de publicação decrescente
+    trailers.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+
+    // Retorna o trailer mais recente, se existir
+    if (trailers.length > 0) {
+      const latestTrailer = trailers[0];
+      
+
+      return (
+        <div>
+          <h2>Trailers</h2>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${latestTrailer.key}`}
+            title={latestTrailer.name}
+            allowFullScreen
+          />
+        </div>
+      )
+    } else {
+      // Retorna null se não houver trailers
+      return null;
+    }
+  } catch (err) {
+    console.log('erro na API de Vídeo');
+    console.error('error:', err);
+    return (<></>);
+  }
 };
 
 const movieRecomen = async (id) => {
