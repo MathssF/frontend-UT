@@ -62,7 +62,11 @@ export default function idFilm() {
   }, [movie_id]);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: '#E5E5E5',
+      }}
+    >
       <Header />
       {filmContent ? (
         <div
@@ -91,7 +95,9 @@ export default function idFilm() {
                   maxWidth: '383px',
                   height: 'auto',
                   marginRight: '33px',
-                  marginBottom: '-46px'
+                  marginBottom: '-46px',
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
                 }}
               />
               <div

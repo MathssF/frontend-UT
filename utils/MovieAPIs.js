@@ -68,33 +68,43 @@ const movieElenco = async (id) => {
        }}>Elenco original</p>
         <div style={{ overflowX: 'scroll',
           width: '100%', maxWidth: '1100px', height: '100%', maxHeight: '400px',
-          display: 'flex', flexDirection: 'row'
+          display: 'flex', flexDirection: 'row',
+          // paddingRight: '26px',
         }}>
-          {elenco.map((elem, index) => (
-            <div
-              key={index}
-              style={{
-                width: '191px',
-                height: '336px',
-                padding: '8px',
-                display: 'inline-block',
-              }}
-            >
-              <Image
-                src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
-                alt={elem.original_name}
-                width={175}
-                height={222}
-                style={{ marginBottom: '16px' }}
-              />
-              <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
-                {elem.original_name}
-              </p>
-              <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
-                {elem.character}
-              </p>
-            </div>
-          ))}
+          <div style={{ paddingBottom: '26px' }}>
+            {elenco.map((elem, index) => (
+              <div
+                key={index}
+                style={{
+                  width: '191px',
+                  height: '336px',
+                  padding: '8px',
+                  marginRight: '16px',
+                  borderRadius: '4px',
+                  display: 'inline-block',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                  background: '#FFFFFF'
+                }}
+              >
+                <Image
+                  src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
+                  alt={elem.original_name}
+                  width={175}
+                  height={222}
+                  style={{
+                    marginBottom: '16px',
+                    borderRadius: '4px',
+                  }}
+                />
+                <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
+                  {elem.original_name}
+                </p>
+                <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
+                  {elem.character}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
