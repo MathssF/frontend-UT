@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { json } from 'react-router-dom';
 
 const key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0';
@@ -169,16 +170,57 @@ const movieRecomen = async (id) => {
     }
   };
 
-  // const elenco = fetch(url, options)
-  //   .then(res => res.json())
-  //   .then(json => console.log(json))
-  //   .catch(err => console.error('error: ' + err));
-
   try {
     const response = await fetch(url, options);
+    console.log('Response: ', response);
     const json = await response.json();
-    const recomends = json.results;
-  }
+    const recomends = json.results.slice(0, 6);
+    console.log('recomendados: ', recomends);
+    return (
+      <div style={{ whiteSpace: 'nowrap' }}>
+      {recomends.map((title) => (
+        <div key={title.id} style={{
+          display: 'inline-block',
+          margin: '0 8px 0 0',
+          width: '200px',
+          verticalAlign: 'top',
+          }}>
+          <Link href={`/${title.id}`} passHref legacyBehavior>
+            <a style={{
+              textDecoration: 'none',
+              color: 'inherit',
+              display: 'block',
+              whiteSpace: 'normal',
+            }}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${title.poster_path}`}
+                alt={`${title.title} ${title.id}`}
+                style={{
+                  maxHeight: '320px',
+                  maxWidth: '176px',
+                  width: 'auto',
+                  height: 'auto',
+                }}
+              />
+              <br />
+              <strong style={{ fontWeight: 'bold', display: 'block' }}>{title.title}</strong>
+            </a>
+          </Link>
+          <span style={{ whiteSpace: 'normal', display: 'block' }}>
+            {new Date(title.release_date).toLocaleDateString('pt-BR', {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
+          </span>
+        </div>
+      ))}
+      </div>
+    )
+  } catch (err) {
+    console.error('Erro na API de recomendados:', err);
+    return <></>;
+  };
 };
 
 export { movieCredits, movieElenco, movieTeasers, movieRecomen };
