@@ -67,7 +67,7 @@ const movieElenco = async (id) => {
         <p style={{
           marginBottom: '24px', marginTop: '74px',
           fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
-       }}>Elenco original</p>
+       }}>Elenco original:</p>
         <div style={{ overflowX: 'scroll',
           width: '100%', maxWidth: '1100px', height: '100%', maxHeight: '400px',
           display: 'flex', flexDirection: 'row',
@@ -134,20 +134,13 @@ const movieTeasers = async (id) => {
     trailers.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
     if (trailers.length > 0) {
       const latestTrailer = trailers[0];
-      // const latestsTrailers = trailers[0];
-      // const latestsTrailers = [trailers[0], trailers[1]]
-
-      // if (trailers.length > 1) {
-      //   const latestsTrailers = [trailers[0], trailers[1]];
-      // }
 
       return (
-        <div>
+        <div style={{ marginLeft: '112px', width: 'calc(100% - 112px)' }}>
           <p style={{
             marginBottom: '24px', marginTop: '74px',
             fontWeight: 'bold', fontSize: '28px', fontFamily: 'Roboto',
-            marginLeft: '112px',
-          }}>Trailers</p>
+          }}>Trailer:</p>
           <iframe
             width="560"
             height="315"
@@ -155,17 +148,6 @@ const movieTeasers = async (id) => {
             title={latestTrailer.name}
             allowFullScreen
           />
-          {/* {latestsTrailers.map((trailer, index) => (
-            <div key={index}>
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${trailer.key}`}
-                title={trailer.name}
-                allowFullScreen
-              />
-            </div>
-          ))} */}
         </div>
       )
     } else {
