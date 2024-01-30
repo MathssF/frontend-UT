@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { json } from 'react-router-dom';
 
 const key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0';
 
@@ -71,40 +72,39 @@ const movieElenco = async (id) => {
           display: 'flex', flexDirection: 'row',
           // paddingRight: '26px',
         }}>
-          <div style={{ paddingBottom: '26px' }}>
-            {elenco.map((elem, index) => (
-              <div
-                key={index}
+          {elenco.map((elem, index) => (
+            <div
+              key={index}
+              style={{
+                width: '191px',
+                height: '336px',
+                padding: '8px',
+                marginRight: '16px',
+                marginBottom: '26px',
+                borderRadius: '4px',
+                display: 'inline-block',
+                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
+                background: '#FFFFFF'
+              }}
+            >
+              <Image
+                src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
+                alt={elem.original_name}
+                width={175}
+                height={222}
                 style={{
-                  width: '191px',
-                  height: '336px',
-                  padding: '8px',
-                  marginRight: '16px',
+                  marginBottom: '16px',
                   borderRadius: '4px',
-                  display: 'inline-block',
-                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-                  background: '#FFFFFF'
                 }}
-              >
-                <Image
-                  src={`https://image.tmdb.org/t/p/w500/${elem.profile_path}`}
-                  alt={elem.original_name}
-                  width={175}
-                  height={222}
-                  style={{
-                    marginBottom: '16px',
-                    borderRadius: '4px',
-                  }}
-                />
-                <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
-                  {elem.original_name}
-                </p>
-                <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
-                  {elem.character}
-                </p>
-              </div>
-            ))}
-          </div>
+              />
+              <p style={{ marginBottom: '4px', fontWeight: 'bold', fontSize: '18px', fontFamily: 'Roboto' }}>
+                {elem.original_name}
+              </p>
+              <p style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
+                {elem.character}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     );
@@ -112,7 +112,25 @@ const movieElenco = async (id) => {
     console.log('erro no MovieAPIs');
     console.error('error:', err);
     return (<p>Erro de API</p>);
-  }
+  };
+};
+
+const movieTeasers = async (id) => {
+  const fetch = require('node-fetch');
+
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`;
+  const options = {
+    method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: key,
+    }
+  };
+
+  const trailers = fetch(url, options)
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(err => console.error('error: ' + err));
 };
 
 const movieRecomen = async (id) => {

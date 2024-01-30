@@ -95,6 +95,3 @@ const SinopseComponent = ({ overview }) => {
 };
 
 export { MovieDetails, RatingCircle, SinopseComponent };
-
-// https://developer.themoviedb.org/reference/movie-credits
-// https://developer.themoviedb.org/reference/movie-recommendations
