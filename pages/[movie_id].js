@@ -44,10 +44,6 @@ export default function idFilm() {
         console.error('Erro na chamada da API', error);
       }
     }
-      
-    if (movie_id) {
-      fetchDataFilm();
-    }
 
     const fetchCredits = async () => {
       const credits = await movieCredits(movie_id);
@@ -70,6 +66,7 @@ export default function idFilm() {
     }
 
     if (movie_id) {
+      fetchDataFilm();
       fetchCredits();
       fetchElenco();
       fetchTeaser();
