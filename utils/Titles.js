@@ -84,8 +84,6 @@ export default function Titles({ genres }) {
     marginRight: '12px',
   };
 
-  // className = "pointer mb-4 mx-3 w-4  md:w-8"
-
   return (
     <>
       <div style={flagsContainerStyle}>
@@ -96,7 +94,7 @@ export default function Titles({ genres }) {
             key={index}
             src={elem.flag.src}
             alt={elem.lang}
-            style={{ ...flagStyle, left: `calc(${index * 20}px)` }} // Ajuste a posição horizontal conforme necessário
+            style={{ ...flagStyle, left: `calc(${index * 20}px)` }}
             onClick={() => setFlagLang(elem.lang)}
           />
         )})}
