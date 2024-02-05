@@ -3,6 +3,6 @@ module.exports = {
       domains: ['image.tmdb.org'],
     },
     env: {
-      API_KEY: process.env.API_KEY,
+      API_Key: process.env.API_KEY,
     },
   };
