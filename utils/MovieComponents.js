@@ -1,4 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { movieCreditsAPI, movieElencoAPI, movieTeasersAPI, movieRecomenAPI } from './MovieAPIx.js';
+
 
 const MovieDetails = ({ movieData }) => {
   const {

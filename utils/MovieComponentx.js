@@ -1,33 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { json } from 'react-router-dom';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const key = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3YjcxZWQxMzcwZmJkODliMWYwZTdlZjY5N2FkYjk4ZSIsInN1YiI6IjY0ZDgzNjQ2MDAxYmJkMDBjNmM3M2NjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0GsCxynMfYUeSw03wyxd1BpvE5T6IdFKuQmYuG-Ap-0'
+import { movieCreditsAPI, movieElencoAPI, movieTeasersAPI, movieRecomenAPI } from './MovieAPIx.js';
 
 const movieCredits = async (id) => {
-  const fetch = require('node-fetch');
-
-  const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: key,
-    }
-  };
-
   try {
-    const response = await fetch(url, options);
-    const json = await response.json();
-
-    console.log('json: ', json);
-    
-    const credits = json.cast.slice(0, 6);
-
-    console.log('credits: ', credits);
+    const credits = await movieCreditsAPI(id);
 
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -47,22 +25,8 @@ const movieCredits = async (id) => {
 };
 
 const movieElenco = async (id) => {
-  const fetch = require('node-fetch');
-
-  const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: key,
-    }
-  };
-
   try {
-    const response = await fetch(url, options);
-    const json = await response.json();
-    
-    const elenco = json.cast.slice(0, 12);
+    const elenco = await movieElencoAPI(id);
 
     return (
       <div style={{ marginLeft: '42px' }}>
@@ -118,25 +82,10 @@ const movieElenco = async (id) => {
 };
 
 const movieTeasers = async (id) => {
-  const fetch = require('node-fetch');
-
-  const url = `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`;
-  const options = {
-    method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: key,
-    }
-  };
-
   try {
-    const response = await fetch(url, options);
-    const json = await response.json();
-    const trailers = json.results.filter((video) => video.type === 'Trailer');
-    trailers.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
-    if (trailers.length > 0) {
-      const latestTrailer = trailers[0];
+    const latestTrailer = await movieTeasersAPI(id);
 
+    if (latestTrailer) {
       return (
         <div style={{ marginLeft: '112px', width: 'calc(100% - 112px)' }}>
           <p style={{
@@ -158,28 +107,14 @@ const movieTeasers = async (id) => {
   } catch (err) {
     console.log('erro na API de Vídeo');
     console.error('error:', err);
-    return (<></>);
+    return null;
   }
 };
 
 const movieRecomen = async (id) => {
-  const fetch = require('node-fetch');
-
-  const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: key,
-    }
-  };
-
   try {
-    const response = await fetch(url, options);
-    console.log('Response: ', response);
-    const json = await response.json();
-    const recomends = json.results.slice(0, 5);
-    console.log('recomendados: ', recomends);
+    const recomends = await movieRecomenAPI(id);
+    
     return (
       <div style={{ whiteSpace: 'nowrap' }}>
         <p style={{
