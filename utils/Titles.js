@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import TitlesList from '../contexts/titlesList';
+import FiltredList from '../contexts/filtredList';
 import flagBR from '../images/brasil.png';
 import flagPT from '../images/portugal.png';
 import flagUS from '../images/estados-unidos.png';
@@ -22,14 +23,24 @@ export default function Titles({ genres }) {
   };
 
   useEffect(() => {
-    TitlesList({
-      children: titles,
-      lang: flagLang,
-      page: pageAtual,
-    }).then(titlesArray => {
-      setTitles(titlesArray);
-    });
-  }, [pageAtual, flagLang]);
+    if (genres.length > 0) {
+      FiltredList({
+        genres: genres,
+        page: pageAtual,
+      }).then(titlesArray => {
+        setTitles(titlesArray);
+      });
+    } else {
+      // Se não houver gêneros selecionados, usa a TitlesList padrão
+      TitlesList({
+        children: titles,
+        lang: flagLang,
+        page: pageAtual,
+      }).then(titlesArray => {
+        setTitles(titlesArray);
+      });
+    }
+  }, [pageAtual, flagLang, genres]);
 
   const langFlags = [
     { lang: 'pt-BR', flag: flagBR },
@@ -44,9 +55,9 @@ export default function Titles({ genres }) {
     return <div><h1>Nenhum título disponível</h1></div>;
   }
 
-  const filteredTitles = genres.length > 0
-    ? titles.filter(title => title.genre_ids.some(genreId => genres.includes(genreId)))
-    : titles;
+  // const filteredTitles = genres.length > 0
+  //   ? titles.filter(title => title.genre_ids.some(genreId => genres.includes(genreId)))
+  //   : titles;
 
   const containerStyle = {
     display: 'flex',
@@ -100,7 +111,7 @@ export default function Titles({ genres }) {
         )})}
       </div>
       <div style={containerStyle}>
-        {filteredTitles.map(title => (
+        {titles.map(title => (
           <div
             key={title.id}
             style={titleStyle}
@@ -116,7 +127,6 @@ export default function Titles({ genres }) {
                 <strong style={{ fontWeight: 'bold' }}>{title.title}</strong>
               </a>
             </Link>
-            {/* <br /> */}
             {new Date(title.release_date).toLocaleDateString('pt-BR', {
               day: 'numeric',
               month: 'short',
