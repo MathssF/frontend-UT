@@ -9,13 +9,6 @@ import {
   movieTeasers,
   movieRecomen,
 } from '../utils/MovieComponents';
-// import {
-//   movieCredits,
-//   movieElenco,
-//   movieTeasers,
-//   movieRecomen,
-// } from '../utils/MovieComponentx';
-// } from '../utils/MovieAPIs';
 import Header from '../utils/Header.js';
 import dotenv from 'dotenv';
 dotenv.config();
