@@ -55,10 +55,6 @@ export default function Titles({ genres }) {
     return <div><h1>Nenhum título disponível</h1></div>;
   }
 
-  // const filteredTitles = genres.length > 0
-  //   ? titles.filter(title => title.genre_ids.some(genreId => genres.includes(genreId)))
-  //   : titles;
-
   const containerStyle = {
     display: 'flex',
     flexWrap: 'wrap',
