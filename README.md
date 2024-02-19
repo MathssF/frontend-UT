@@ -43,15 +43,15 @@ A seguir, estão algumas imagens do projeto:
 
 - Tela1Top:
 
-![Tela1Top](raiz/images/readMeImages/Tela1Top.png)
+![Tela1Top](/images/readMeImages/Tela1Top.png)
 
 - Tela1BR:
 
-![Tela1BR](raiz/images/readMeImages/Tela1BR.png)
+![Tela1BR](/images/readMeImages/Tela1BR.png)
 
 - Tela1EU:
 
-![Tela1EU](raiz/images/readMeImages/Tela1EU.png)
+![Tela1EU](/images/readMeImages/Tela1EU.png)
 
 Dependendo da bandeira clicada, o idioma e as informações são alteradas.
 </details>
@@ -61,15 +61,15 @@ Dependendo da bandeira clicada, o idioma e as informações são alteradas.
 
 - Tela2Top:
 
-![Tela2Top](raiz/images/readMeImages/Tela2Top.png)
+![Tela2Top](/images/readMeImages/Tela2Top.png)
 
 - Tela2Elenco:
 
-![Tela2Elenco](raiz/images/readMeImages/Tela2Elenco.png)
+![Tela2Elenco](/images/readMeImages/Tela2Elenco.png)
 
 - Tela2Trailer:
 
-![Tela2Trailer](raiz/images/readMeImages/Tela2Trailer.png)
+![Tela2Trailer](/images/readMeImages/Tela2Trailer.png)
 
 </details>
 
