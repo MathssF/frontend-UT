@@ -39,35 +39,43 @@ O projeto estará disponível em `http://localhost:3000`.
 A seguir, estão algumas imagens do projeto:
 
 <details>
-<summary>Tela 1</summary>
+<summary>Tela de Catalogo</summary>
 
-- Tela1Top:
+- Tela Principal, na parte superior:
 
 ![Tela1Top](/images/readMeImages/Tela1Top.png)
 
-- Tela1BR:
+- Tela Principal, no catalogo:
+
+![Tela1EN](/images/readMeImages//Tela1EN.png)
+
+Observe que se mudar a bandeira, o idioma e as informações mudam. Veja:
+
+- Selecionando Bandeira do Brasil:
 
 ![Tela1BR](/images/readMeImages/Tela1BR.png)
 
-- Tela1EU:
+- Selecionando uma bandeira Europeia:
 
 ![Tela1EU](/images/readMeImages/Tela1EU.png)
 
 Dependendo da bandeira clicada, o idioma e as informações são alteradas.
 </details>
 
-<details>
-<summary>Tela 2</summary>
+Ao seleiconar um filme, a página é redirecionada:
 
-- Tela2Top:
+<details>
+<summary>Tela de informações do filme</summary>
+
+- Poster do Filme:
 
 ![Tela2Top](/images/readMeImages/Tela2Top.png)
 
-- Tela2Elenco:
+- Elenco:
 
 ![Tela2Elenco](/images/readMeImages/Tela2Elenco.png)
 
-- Tela2Trailer:
+- Trailer e Recomendações:
 
 ![Tela2Trailer](/images/readMeImages/Tela2Trailer.png)
 
