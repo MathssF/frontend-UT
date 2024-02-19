@@ -39,6 +39,7 @@ const movieElencoAPI = async (id) => {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
+    // const final = json.filter();
     return json.cast.slice(0, 12);
   } catch (err) {
     console.log('erro na MovieAPIs');
