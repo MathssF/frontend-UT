@@ -11,13 +11,13 @@ Para instalar e rodar o projeto localmente, siga os passos abaixo:
 1. Clone este repositório em sua máquina:
 
 ```bash
-git clone <URL_DO_REPOSITÓRIO>
+git clone https://github.com/MathssF/frontend-UT.git
 ```
 
 2. Navegue até o diretório do projeto:
 
 ```bash
-cd <NOME_DO_DIRETÓRIO>
+cd frontend-UT
 ```
 
 3. Instale as dependências utilizando npm:
